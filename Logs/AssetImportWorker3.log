@@ -1,0 +1,540 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.1f1 (3b70a0754835) revision 3895456'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'en' Physical Memory: 16255 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+E:/UnityProjects/GarbageTruck_AK_Global
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+54086
+Successfully changed project path to: E:/UnityProjects/GarbageTruck_AK_Global
+E:/UnityProjects/GarbageTruck_AK_Global
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 78.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.1f1 (3b70a0754835)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/UnityProjects/GarbageTruck_AK_Global/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) HD Graphics P4600/P4700 (ID=0x41a)
+    Vendor:   Intel
+    VRAM:     2048 MB
+    Driver:   20.19.15.4624
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56728
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.012526 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 68.43 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.726 seconds
+Domain Reload Profiling:
+	ReloadAssembly (727ms)
+		BeginReloadAssembly (98ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (494ms)
+			LoadAssemblies (96ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (123ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (282ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (59ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (69ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (105ms)
+				ProcessInitializeOnLoadMethodAttributes (47ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.008503 seconds.
+Begin MonoManager ReloadAssembly
+OnLevelWasLoaded was found on ShowcaseGUI
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 1.28 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unable to write to 'ProjectSettings\GvhProjectSettings.xml' (System.IO.IOException: Sharing violation on path E:\UnityProjects\GarbageTruck_AK_Global\ProjectSettings\GvhProjectSettings.xml
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <6073cf49ed704e958b8a66d540dea948>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) [0x00000] in <6073cf49ed704e958b8a66d540dea948>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean useAsync) [0x00000] in <6073cf49ed704e958b8a66d540dea948>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,bool)
+  at System.Xml.XmlWriterSettings.CreateWriter (System.String outputFileName) [0x00051] in <938a03e8c5f34c788591fc3c21d5b34b>:0 
+  at System.Xml.XmlWriter.Create (System.String outputFileName, System.Xml.XmlWriterSettings settings) [0x0000a] in <938a03e8c5f34c788591fc3c21d5b34b>:0 
+  at Google.ProjectSettings.Save () [0x0006d] in /Users/chkuang/Workspace/git/unity-jar-resolver/source/VersionHandlerImpl/src/ProjectSettings.cs:821 , Project settings were not saved!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Google.Logger:Log (string,Google.LogLevel) (at /Users/chkuang/Workspace/git/unity-jar-resolver/source/VersionHandlerImpl/src/Logger.cs:136)
+Google.ProjectSettings:Save () (at /Users/chkuang/Workspace/git/unity-jar-resolver/source/VersionHandlerImpl/src/ProjectSettings.cs:844)
+Google.ProjectSettings:SetBool (string,bool,Google.SettingsLocation) (at /Users/chkuang/Workspace/git/unity-jar-resolver/source/VersionHandlerImpl/src/ProjectSettings.cs:485)
+Google.ProjectSettings:SetBool (string,bool) (at /Users/chkuang/Workspace/git/unity-jar-resolver/source/VersionHandlerImpl/src/ProjectSettings.cs:497)
+Google.IOSResolver:set_VerboseLoggingEnabled (bool) (at /Users/chkuang/Workspace/git/unity-jar-resolver/source/IOSResolver/src/IOSResolver.cs:1041)
+Google.IOSResolver:.cctor () (at /Users/chkuang/Workspace/git/unity-jar-resolver/source/IOSResolver/src/IOSResolver.cs:727)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: /Users/chkuang/Workspace/git/unity-jar-resolver/source/VersionHandlerImpl/src/ProjectSettings.cs Line: 844)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.222 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1223ms)
+		BeginReloadAssembly (253ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (143ms)
+		EndReloadAssembly (840ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (189ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (77ms)
+			SetupLoadedEditorAssemblies (445ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (63ms)
+				ProcessInitializeOnLoadAttributes (322ms)
+				ProcessInitializeOnLoadMethodAttributes (31ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 2.20 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2499 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 145 unused Assets / (99.7 KB). Loaded Objects now: 2930.
+Memory consumption went from 146.6 MB to 146.5 MB.
+Total: 3.015600 ms (FindLiveObjects: 0.269300 ms CreateObjectMapping: 0.110000 ms MarkObjects: 2.482200 ms  DeleteObjects: 0.153100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 29031.086599 seconds.
+  path: Assets/banana girl;/cat rig.fbx
+  artifactKey: Guid(449e22f1dbbf12146b9a544fed375b97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/banana girl;/cat rig.fbx using Guid(449e22f1dbbf12146b9a544fed375b97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '917538d344df6b16e26ce5e39c5e92df') in 0.437865 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/banana girl;/lambert1.mat
+  artifactKey: Guid(7920beafacdeaef4b9d3fcad222789dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/banana girl;/lambert1.mat using Guid(7920beafacdeaef4b9d3fcad222789dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ed8b0e9acb8fb6a9077706de62a8928') in 0.054998 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.244100 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/level complete/COIN.png
+  artifactKey: Guid(513516690204e5d41a6f6c3d28181f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/level complete/COIN.png using Guid(513516690204e5d41a6f6c3d28181f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20af7db5bc62fdbec91be6ca981a3a79') in 0.138289 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/level complete/next.png
+  artifactKey: Guid(62c750ea059b03746b71193c361a2944) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/level complete/next.png using Guid(62c750ea059b03746b71193c361a2944) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2acc31bb203ea3c78a4fc103803c93e') in 0.028453 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/level complete/PANEL.png
+  artifactKey: Guid(3059696190b6eb445b6179b83ea24642) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/level complete/PANEL.png using Guid(3059696190b6eb445b6179b83ea24642) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7a5aa870e69ea391eed1b38053a50b4') in 0.083175 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/level complete/LEVEL COMPLATE.png
+  artifactKey: Guid(6c6b36eea556e6b429e92add2c68d3ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/level complete/LEVEL COMPLATE.png using Guid(6c6b36eea556e6b429e92add2c68d3ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5894df72cadd96539284cbf9e986601') in 0.029232 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/level complete/victory.png
+  artifactKey: Guid(7af2add65e2292a44b742a4a003542df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/level complete/victory.png using Guid(7af2add65e2292a44b742a4a003542df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5f281c95e2f95c4ac9bfb921fff93a6') in 0.051706 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/level complete/trophy PANEL.png
+  artifactKey: Guid(2896652f225c4784193a2aaef700d6e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/level complete/trophy PANEL.png using Guid(2896652f225c4784193a2aaef700d6e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e52e2c5aa23c27e57a928bdfc0ba0cb') in 0.117451 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.194887 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/levels/locked.png
+  artifactKey: Guid(ab2def1ecfb870541ba9cc73c7e491f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/levels/locked.png using Guid(ab2def1ecfb870541ba9cc73c7e491f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9c02cb979df36709635f60e2ffb45a9') in 0.046514 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Dashboard/NeedleTop.png
+  artifactKey: Guid(628cc69884b489440889479d274302c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Dashboard/NeedleTop.png using Guid(628cc69884b489440889479d274302c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bce7e5212811ec3f71129f540598e1f7') in 0.019463 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Dashboard/NoS.png
+  artifactKey: Guid(b0c6a6d53beedd541a008c1870b9fe4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Dashboard/NoS.png using Guid(b0c6a6d53beedd541a008c1870b9fe4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8ef0235d780072e77217e24b2e8b9cf') in 0.051406 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/paused/restart button.png
+  artifactKey: Guid(ecc495b2ea70fb945829b5c40ace4b92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/paused/restart button.png using Guid(ecc495b2ea70fb945829b5c40ace4b92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a15c8c179eebfb6200a7af7e28ad29e') in 0.021101 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Game UI NEW/gameplay/gameplay/gameplay/race.png
+  artifactKey: Guid(9c5a68b0358cfc44ba427e47d4046caa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/gameplay/gameplay/gameplay/race.png using Guid(9c5a68b0358cfc44ba427e47d4046caa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6354c0dd57f2f928d5eba136875b915') in 0.037976 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Misc/Dirt Bike Gui New/Main menu buttons/Play 2..png
+  artifactKey: Guid(64eaec776886d534cb2c647c518267ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Misc/Dirt Bike Gui New/Main menu buttons/Play 2..png using Guid(64eaec776886d534cb2c647c518267ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bec44d15f5f3f205adad32773177d0a1') in 0.024725 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/menu/more games.png
+  artifactKey: Guid(646cd0c508f4e3e4d973b4adf8c33974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/menu/more games.png using Guid(646cd0c508f4e3e4d973b4adf8c33974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23ff9cce67817732182849b40354acb0') in 0.054177 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/menu/policy.png
+  artifactKey: Guid(695cf90d4af481d498328ea122a7724f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/menu/policy.png using Guid(695cf90d4af481d498328ea122a7724f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a09dd85b0414014d125bd0b4b277764d') in 0.024064 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/next panel/Rectangle 1.png
+  artifactKey: Guid(338be97f9ec24814380ca9b23bab4f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/next panel/Rectangle 1.png using Guid(338be97f9ec24814380ca9b23bab4f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9faccb90c47557c7c278ad00caaf7deb') in 0.080599 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Dashboard/NOSButton.png
+  artifactKey: Guid(aca691deccb9cfa4a98b78118ed69225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Dashboard/NOSButton.png using Guid(aca691deccb9cfa4a98b78118ed69225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b8fca5c137a74272301776e7ed8e241') in 0.023373 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Texture2D/pump_0.png
+  artifactKey: Guid(ec0567c2075c2694cac04f1e5d2ef97b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture2D/pump_0.png using Guid(ec0567c2075c2694cac04f1e5d2ef97b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f16c46edc74330fd0ec148eff834d52b') in 0.059217 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Taxi Gui/Main menu buttons/Locked..png
+  artifactKey: Guid(f2882aaca171a1b43929f7d4d73c186b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Taxi Gui/Main menu buttons/Locked..png using Guid(f2882aaca171a1b43929f7d4d73c186b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2117aae97c3eeadf700e5a3e033c65a6') in 0.021825 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Off_Road_Quaid_Bike_(UI)/Dialog_Box's_Temp/game_exit_temp/no_p.png
+  artifactKey: Guid(095b720a2aafb8d4c9ea693e65215cc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Off_Road_Quaid_Bike_(UI)/Dialog_Box's_Temp/game_exit_temp/no_p.png using Guid(095b720a2aafb8d4c9ea693e65215cc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb3cf729f08e052c68394cbd86271b60') in 0.024673 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/menu/Rectangle 2.png
+  artifactKey: Guid(ed1f0ea229c562a43a0174470d072730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/menu/Rectangle 2.png using Guid(ed1f0ea229c562a43a0174470d072730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79cc5c777f7117f022bba472d2235f3f') in 0.044897 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Unibit Jeep Simulation Gui/Gaming buttons/Refresh..png
+  artifactKey: Guid(d540ccd7171f8d842b39dedd1355ca33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Unibit Jeep Simulation Gui/Gaming buttons/Refresh..png using Guid(d540ccd7171f8d842b39dedd1355ca33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b50cdd58796d5cb36ff06f200985f09c') in 0.017639 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Taxi Gui/Panels/Plain panel..png
+  artifactKey: Guid(0958fe4f9cad38444bcb4016e8442f71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Taxi Gui/Panels/Plain panel..png using Guid(0958fe4f9cad38444bcb4016e8442f71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fde6949630e5e25d78d1d292b861c22') in 0.050771 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/menu/rate us.png
+  artifactKey: Guid(72767b9d34ba8f74cb4c3b02aee1f588) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/menu/rate us.png using Guid(72767b9d34ba8f74cb4c3b02aee1f588) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0da0c3c0b977b675c9f78939260acd40') in 0.021228 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.203843 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/failed/LEVEL FAILED.png
+  artifactKey: Guid(2936cf36765f54d4e95023baed3fdea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/failed/LEVEL FAILED.png using Guid(2936cf36765f54d4e95023baed3fdea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb5c88820d758e59e7fbd3f89f501ad9') in 0.076508 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Dashboard/HazardLights.png
+  artifactKey: Guid(be6516ee7f066d3479b625f021f259f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Dashboard/HazardLights.png using Guid(be6516ee7f066d3479b625f021f259f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76ba95e3cdcbbed5e534c23985fbcbac') in 0.018158 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Taxi Gui/bar/Health Bar BG.png
+  artifactKey: Guid(54ac437b757fd7d4886841bfd6ca6409) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Taxi Gui/bar/Health Bar BG.png using Guid(54ac437b757fd7d4886841bfd6ca6409) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cbd8a5e3c4c42fdde8b9596cb6b82ab') in 0.034494 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Dashboard/Headlights.png
+  artifactKey: Guid(c8899dbca11235341bce7a60acd49f26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Dashboard/Headlights.png using Guid(c8899dbca11235341bce7a60acd49f26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6bea99ff6c948621e74c8530ba665d6') in 0.023507 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.016504 seconds.
+  path: Assets/Game UI NEW/gameplay/gameplay/gameplay/Group 1.png
+  artifactKey: Guid(2697df6737d85fa44bfb2f93db97dd9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/gameplay/gameplay/gameplay/Group 1.png using Guid(2697df6737d85fa44bfb2f93db97dd9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '568cd3a75512ad29ad654dbe51a6704b') in 0.023579 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Game UI NEW/gameplay/gameplay/gameplay/Group 4.png
+  artifactKey: Guid(cff444a0c04854649a3c1331e46663dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/gameplay/gameplay/gameplay/Group 4.png using Guid(cff444a0c04854649a3c1331e46663dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15e29c99a2fbd15bc8a7813fbaec3c87') in 0.022849 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/failed/Group 4.png
+  artifactKey: Guid(afb1442b80c7e9543bd88735a935c065) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/failed/Group 4.png using Guid(afb1442b80c7e9543bd88735a935c065) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34e6842c200946579e6e79cbd48271f7') in 0.024617 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.313260 seconds.
+  path: Assets/Taxi Gui/Settings Buttons/Game Music off..png
+  artifactKey: Guid(e28e51a2b346a0f4c9d7e44542162017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Taxi Gui/Settings Buttons/Game Music off..png using Guid(e28e51a2b346a0f4c9d7e44542162017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e292632562ffff49089aa5b909be905') in 0.033885 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/paused/GAME PAUSED.png
+  artifactKey: Guid(7620f17583afb0b4d93bf26119be6ac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/paused/GAME PAUSED.png using Guid(7620f17583afb0b4d93bf26119be6ac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '754929713e6fcacae2c30b445715b1a4') in 0.021156 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.075656 seconds.
+  path: Assets/Off_Road_Quaid_Bike_(UI)/Dialog_Box's_Temp/confirmation_temp/exit_p.png
+  artifactKey: Guid(b9b9a01bea2e9e740bba014f46a610be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Off_Road_Quaid_Bike_(UI)/Dialog_Box's_Temp/confirmation_temp/exit_p.png using Guid(b9b9a01bea2e9e740bba014f46a610be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b891671b4ec1f0b41775b05e447baf7e') in 0.030573 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Plugins/Demigiant/DOTweenPro Examples/Examples Assets/dotweenpro_logo.png
+  artifactKey: Guid(44a054df1702e39458b7072b08d0f212) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Demigiant/DOTweenPro Examples/Examples Assets/dotweenpro_logo.png using Guid(44a054df1702e39458b7072b08d0f212) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52e5bd577c19473d65bfe1c2448667f5') in 0.074119 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Epic Toon FX/Demo/Textures/devsprite.png
+  artifactKey: Guid(c1e3ddf20be295e4cb3a38f57f18680a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Epic Toon FX/Demo/Textures/devsprite.png using Guid(c1e3ddf20be295e4cb3a38f57f18680a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '139e2989ff88ec359ac9b2b3c71f4c63') in 0.138647 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.418122 seconds.
+  path: Assets/Taxi Gui/New Added Buttons/Cross..png
+  artifactKey: Guid(a0eca906dc07db64e8f75eebf902ea92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Taxi Gui/New Added Buttons/Cross..png using Guid(a0eca906dc07db64e8f75eebf902ea92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1761dc8b5d5a8e48ff3c428a671a9c7') in 0.027693 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/modes/DAY MODE.png
+  artifactKey: Guid(49bb504f6b5cfe441bbd10ca9db75961) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/modes/DAY MODE.png using Guid(49bb504f6b5cfe441bbd10ca9db75961) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '321ad27b6d99feed90f0e7fccfa43ca9') in 0.100749 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/modes/Daily Reward.png
+  artifactKey: Guid(7935b502c3287424b9851987cf0d71da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/modes/Daily Reward.png using Guid(7935b502c3287424b9851987cf0d71da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '256e10b2583f03b4e11dd9b7cd040a28') in 0.040134 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.059671 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Mobile Textures/BrakePedal.png
+  artifactKey: Guid(d697c86e1d55b8945ba94cec37c01081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Mobile Textures/BrakePedal.png using Guid(d697c86e1d55b8945ba94cec37c01081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69f08d42f00fcc270405a4cddb49f539') in 0.027446 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Game UI NEW/gameplay/gameplay/gameplay/clock.png
+  artifactKey: Guid(2cd151f584018bf42b758439c4caaf0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/gameplay/gameplay/gameplay/clock.png using Guid(2cd151f584018bf42b758439c4caaf0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fd1c0af083827f1e8380b325b89f50c') in 0.022079 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/modes/career mode.png
+  artifactKey: Guid(a753a60c9a035424b8c26e375f169439) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/modes/career mode.png using Guid(a753a60c9a035424b8c26e375f169439) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48077f52a89689a1fc0613fccd54d35b') in 0.058648 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Mobile Textures/CameraCycle.png
+  artifactKey: Guid(0336ea8c9d6d703468726afc740950fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Mobile Textures/CameraCycle.png using Guid(0336ea8c9d6d703468726afc740950fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '972cca9d496a2ff57e71ccb5d43249c4') in 0.027790 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Misc/haroon car paints/blue.png
+  artifactKey: Guid(516012fef29d2344db8be0f72d4f4a0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Misc/haroon car paints/blue.png using Guid(516012fef29d2344db8be0f72d4f4a0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b794c98b9e937006695993ff7a3a70be') in 0.025809 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/loading/bgg.png
+  artifactKey: Guid(a9aea79ff82626746b9f8d628a1159b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/loading/bgg.png using Guid(a9aea79ff82626746b9f8d628a1159b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '270f0355ff971a9c2d85e88b3fd5204d') in 0.203043 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Dashboard/BoostNeedle.png
+  artifactKey: Guid(aff4127306388e74c9a2c9259e44afc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Dashboard/BoostNeedle.png using Guid(aff4127306388e74c9a2c9259e44afc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd76074f3e1c9c703339d7ec207c34b1a') in 0.019478 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.213953 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/paused/base.png
+  artifactKey: Guid(1fbbf285fa42850478bc696e2f0d4464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/paused/base.png using Guid(1fbbf285fa42850478bc696e2f0d4464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd60a89962d29018ad85a8d8344035eb8') in 0.069569 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 167.041298 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Dashboard/RPM.png
+  artifactKey: Guid(878d051cee69a3842aec44f08f167bbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Dashboard/RPM.png using Guid(878d051cee69a3842aec44f08f167bbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75c8b06db5fbc3627566acb6137e361c') in 0.030262 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Misc/green/setting.png
+  artifactKey: Guid(6f8ad7be5013a1245aaec686eb06efa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Misc/green/setting.png using Guid(6f8ad7be5013a1245aaec686eb06efa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81df0933bc07cccbc8324ca6f0b75756') in 0.045568 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Taxi Gui/Settings Buttons/Sound Effect Mute.png
+  artifactKey: Guid(0a70e9bc08ca2b44a846c48def936028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Taxi Gui/Settings Buttons/Sound Effect Mute.png using Guid(0a70e9bc08ca2b44a846c48def936028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89359cd1781d504d8c3fcd446da0e271') in 0.032786 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/menu/settings.png
+  artifactKey: Guid(72162c77691f76b4c9573cacc91209e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/menu/settings.png using Guid(72162c77691f76b4c9573cacc91209e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9b5556067804dbfeb28c17c210cdf3c') in 0.027363 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/RealisticCarControllerV3/Textures/Mobile Textures/steering wheel.png
+  artifactKey: Guid(5e11606abcefdca40b370201cfce86af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RealisticCarControllerV3/Textures/Mobile Textures/steering wheel.png using Guid(5e11606abcefdca40b370201cfce86af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ee9f3c8ebe141cdf27b7b70010ab15b') in 0.035900 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/modes/SNOW MODE.png
+  artifactKey: Guid(2e369dda4f18c3f4e8f7bc4fab330180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/modes/SNOW MODE.png using Guid(2e369dda4f18c3f4e8f7bc4fab330180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d92b97d1e47e4bf799a2b69a8044bd8') in 0.079912 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/New cargo Truck Ui/main menu/SHOP.png
+  artifactKey: Guid(72d080ebf8879b74b8be4f636119bc43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New cargo Truck Ui/main menu/SHOP.png using Guid(72d080ebf8879b74b8be4f636119bc43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e118b3fbd73487d3899e5e1d8af56498') in 0.044531 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/modes/stunt mode.png
+  artifactKey: Guid(aae0fbbe557318f48a2efc90d1c48adc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/modes/stunt mode.png using Guid(aae0fbbe557318f48a2efc90d1c48adc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a8c768337e584c22514d39d2839b55') in 0.071393 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.283078 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/modes/track racing.png
+  artifactKey: Guid(640a5ca258dcfb54ab2c8279a507f7c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/modes/track racing.png using Guid(640a5ca258dcfb54ab2c8279a507f7c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f2192c03f32eebcd3a0bd656530065e') in 0.065391 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Misc/haroon car paints/yellow.png
+  artifactKey: Guid(1ad83b430855fa54c993146c7dd28d3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Misc/haroon car paints/yellow.png using Guid(1ad83b430855fa54c993146c7dd28d3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a25a47fdae6f10867a195fb4d0764654') in 0.048270 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Game UI NEW/truck simulator/slices/exit/yes.png
+  artifactKey: Guid(8e308ecd4f49a184c881f7d99a2623e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game UI NEW/truck simulator/slices/exit/yes.png using Guid(8e308ecd4f49a184c881f7d99a2623e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfb84672faf2faf3f05bab604d2af171') in 0.024932 seconds 

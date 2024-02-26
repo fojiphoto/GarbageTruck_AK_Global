@@ -660,6 +660,8 @@
 "Assets/Camera Filter Pack/Scripts/CameraFilterPack_Vision_Warp.cs"
 "Assets/Camera Filter Pack/Scripts/CameraFilterPack_Vision_Warp2.cs"
 "Assets/CASAds.cs"
+"Assets/checkpoint prefabs/CheckPointHandler.cs"
+"Assets/checkpoint prefabs/UserNevigationArrowHandler.cs"
 "Assets/Common/Common/ManipulateObjectOnEnable.cs"
 "Assets/Common/Common/ManipulateObjectsOnDisable.cs"
 "Assets/Common/Common/OnEnableAd.cs"
@@ -1060,6 +1062,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/Truckprop.cs"
 -langversion:9.0
 
 /deterministic

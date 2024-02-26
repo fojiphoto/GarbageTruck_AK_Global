@@ -22,7 +22,7 @@ public class ADSLOADER : MonoBehaviour
     }
     public void secondstep()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Gameplay"); ;
     }
     // Update is called once per frame
     void Update()

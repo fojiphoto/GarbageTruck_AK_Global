@@ -279,6 +279,7 @@
     <Compile Include="Assets\Misc\Area730\TextureBlocks\Scripts\Bezier.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_EyesVision_2.cs" />
+    <Compile Include="Assets\Truckprop.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_TV_Horror.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Vision_SniperScore.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Distortion_Noise.cs" />
     <Compile Include="Assets\Misc\_Scripts\MainMenuScript.cs" />
     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
+    <Compile Include="Assets\checkpoint prefabs\UserNevigationArrowHandler.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Drawing_Crosshatch.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_3D_Mirror.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Standard Assets\Utility\WaypointCircuit.cs" />
@@ -339,6 +341,7 @@
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\IsRemoteConfigsReady.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Colors_Adjust_PreFilters.cs" />
+    <Compile Include="Assets\checkpoint prefabs\CheckPointHandler.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blend2Camera_SplitScreen.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Scripts\RCC_GroundMaterials.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />

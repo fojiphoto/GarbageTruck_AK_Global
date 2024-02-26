@@ -13,29 +13,106 @@ public class LevelCompletion : MonoBehaviour
 	public GameObject _levelFailPanel;
 	public GameObject _barCompletion;
 	public GameObject _controllerButtons;
-    public static bool Ads = true;
+    //public static bool Ads = true;
 	public GameObject TrashMan;
  	public RCC_Camera camera;
 	public LevelManager Levelmanager;
 	public GameObject StopPos;
 	public int stoppingpoints;
 	public GameObject TrashPickParticle;
-	public Transform DirectionalArrow,Targetofarrow; 
+	public Transform DirectionalArrow,Targetofarrow;
+	[HideInInspector]
+	public GameObject  Target1 ;
+	[HideInInspector]
+	public bool firsttarget = false;
+	public bool Secondtarget = false;
+	public bool Thirdtarget = false;
+
+	public int currentTargetIndex=0;
+	public int maxHealth = 100;
+	public int currentHealth = 0;
+	public int collectgarbage = 0;
+	public Truckprop healthbar,collect;
+
     private void Awake()
     {
 		camera = GameObject.FindObjectOfType<RCC_Camera>();
 		Debug.Log(PlayerPrefs.GetInt("LevelNumber"));
 		StopPos = GameObject.FindGameObjectWithTag("drop");
 		stoppingpoints = Levelmanager.TrashPointsByLevel[PlayerPrefs.GetInt("LevelNumber")];
+		Debug.Log("stoppingpoints"+stoppingpoints);
 	}
+
+	
     private void Start()
     {
-		GameObject Target= GameObject.FindGameObjectWithTag("Trash Stop");
-		Targetofarrow = Target.gameObject.transform;
+		
+		currentHealth = maxHealth;
+		healthbar.SetMaxHealth(maxHealth);
+		Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
+		Targetofarrow = Target1.transform;
+		
+
 	}
+	public void TargetToFollow()
+	{
+		if (currentTargetIndex < 4)
+		{
+			Debug.Log("currentTargetIndexATTOP" + currentTargetIndex);
+			Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
+			if (Target1 != null)
+			{
+				Targetofarrow = Target1.transform;
+				Debug.Log("collectgarbage" + collectgarbage);
+				//currentTargetIndex++;
+				Debug.Log("currentTargetIndex" + currentTargetIndex);
+				
+				if (currentTargetIndex == 1)
+				{
+					Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
+					Targetofarrow = Target1.transform;
+					Debug.Log("collectgarbage" + collectgarbage);
+					//currentTargetIndex++;
+					Debug.Log("currentTargetIndex" + currentTargetIndex);
+				}
+				
+			}
+			if (currentTargetIndex == 2)
+			{
+				Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
+				Targetofarrow = Target1.transform;
+				Debug.Log("collectgarbage" + collectgarbage);
+				//currentTargetIndex++;
+				Debug.Log("currentTargetIndex" + currentTargetIndex);
+			}
+			
+		}
+		else
+		{
+			// All targets reached or no targets found
+			// You may want to handle this situation accordingly
+		}
+
+	}
+	void HealthDemage(int demage)
+    {	
+		currentHealth -= demage;
+		healthbar.SetHealth(currentHealth);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("City"))
+		{
+			Debug.Log("I am Colliding");
+			HealthDemage(10);
+        }
+    }
+
     private void Update()
     {
-        if (StopPos==null)
+	
+
+		if (StopPos==null)
         {
 			StopPos = GameObject.FindGameObjectWithTag("drop");
 		}
@@ -46,25 +123,63 @@ public class LevelCompletion : MonoBehaviour
     }
 
     public GameObject trashcans;
-	private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag=="Trash Stop")
-        {
-			other.gameObject.GetComponent<Collider>().enabled = false;
-			this.GetComponent<Rigidbody>().isKinematic = true;
-			PickTrash.SetActive(true); 
-			playermaincanvas.SetActive(false);
-			camera.TPSMinimumFOV = 85;
-			stoppingpoints = stoppingpoints - 1;
-			trashcans = other.gameObject;
+	//private void OnTriggerEnter(Collider other)
+	//{
+	//	for (int i = 0; i <= 3; i++)
+	//	{
+	//		if (other.tag == "Trash Stop" || other.tag == ("Trash Stop"+i))
+	//		{
+	//			collectgarbage++;
+	//			collect.GarbageFill(collectgarbage);
+	//			other.gameObject.GetComponent<Collider>().enabled = false;
+	//			this.GetComponent<Rigidbody>().isKinematic = true;
+	//			PickTrash.SetActive(true);
+	//			playermaincanvas.SetActive(false);
+	//			camera.TPSMinimumFOV = 85;
+	//			//stoppingpoints = stoppingpoints - 1;
+	//			trashcans = other.gameObject;
 
+	//		}
+
+			private void OnTriggerEnter(Collider other)
+			{
+				if(currentTargetIndex < 3)
+				{
+					if (other.tag == "Trash Stop" || other.tag == ("Trash Stop" + currentTargetIndex))
+					{
+
+						collectgarbage++;
+						collect.GarbageFill(collectgarbage);
+						other.gameObject.GetComponent<Collider>().enabled = false;
+						this.GetComponent<Rigidbody>().isKinematic = true;
+						PickTrash.SetActive(true);
+						playermaincanvas.SetActive(false);
+						camera.TPSMinimumFOV = 85;
+				currentTargetIndex++;
+				TargetToFollow();
+						
+				trashcans = other.gameObject;
+						
+					}
+					 
+			if ((currentTargetIndex == 3))
+            {
+				GameObject.FindGameObjectWithTag("drop").SetActive(true);
+				Targetofarrow = StopPos.gameObject.transform;
+			}
+            else
+			{
+				GameObject.FindGameObjectWithTag("drop").SetActive(false);
+
+			} 
+
+			if (other.tag == "Reset")
+			{
+				this.transform.position = Levelmanager.PlayerPositions[PlayerPrefs.GetInt("LevelNumber") - 1].transform.position;
+				this.transform.rotation = Levelmanager.PlayerPositions[PlayerPrefs.GetInt("LevelNumber") - 1].transform.rotation;
+			}
 		}
-		if(other.tag=="Reset")
-        {
-			this.transform.position = Levelmanager.PlayerPositions[PlayerPrefs.GetInt("LevelNumber")-1].transform.position;
-			this.transform.rotation = Levelmanager.PlayerPositions[PlayerPrefs.GetInt("LevelNumber")-1].transform.rotation;
-		}
-    }
+	}
 	public IEnumerator Complete()
     {
 		yield return new WaitForSeconds(10f);
@@ -73,14 +188,22 @@ public class LevelCompletion : MonoBehaviour
 		playermaincanvas.SetActive(true);
 		camera.TPSMinimumFOV = 60;
 		TrashMan.GetComponent<Animator>().Play("Hanging");
-		TrashMan.transform.GetChild(0)
-			.gameObject.SetActive(false);
+		TrashMan.transform.GetChild(0).gameObject.SetActive(false);
 		TrashMan.GetComponent<PlayerController>().DummyMonster.transform.GetChild(0).gameObject.SetActive(true);
 		TrashMan.GetComponent<PlayerController>().TrashCan.SetActive(false);
 		StopPos.SetActive(true);
 		trashcans.SetActive(false);
 		TrashPickParticle.SetActive(true);
-		Targetofarrow= StopPos.gameObject.transform;
+        if ((currentTargetIndex == 3)) {
+			Targetofarrow = StopPos.gameObject.transform;
+			GameObject.FindGameObjectWithTag("drop").SetActive(true);
+			 }
+        else
+        {
+			GameObject.FindGameObjectWithTag("drop").SetActive(false);
+
+		}
+		
 		PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1000);
 	}
 

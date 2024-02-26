@@ -25,6 +25,7 @@ public class CarSelection : MonoBehaviour
 	public GameObject[] _vehicles;
 	public GameObject _select;
 	public GameObject _buy;
+	public GameObject _rewardbtn;
 	public Button _priceButton;
 	public GameObject _carSelection;
 	public Text _coins;
@@ -75,6 +76,7 @@ public class CarSelection : MonoBehaviour
 		// we dont need to show price & buy of first car as its free for ride
 		_priceButton.gameObject.SetActive (false);
 		_buy.SetActive (false);
+		_rewardbtn.SetActive (false);
 		_select.SetActive (true);
 
 	//	_rotatingCamera.GetComponent<CameraMove> ().target = _vehicles [0].gameObject.transform;
@@ -113,12 +115,14 @@ public class CarSelection : MonoBehaviour
 			if (PlayerPrefs.GetInt ("Car" + _current)>0) {
 				_priceButton.gameObject.SetActive (false);
 				_buy.SetActive (false);
+				_rewardbtn.SetActive (false);
 				_select.SetActive (true);
 			}else{
 				_priceButton.gameObject.SetActive (true);
 				_priceButton.transform.GetChild(0).GetComponent<Text>().text= _prices [_current].ToString ();
 				_select.SetActive (false);
 				_buy.SetActive (true);
+				_rewardbtn.SetActive (true);
 			}
 				
 		}
@@ -152,15 +156,28 @@ public class CarSelection : MonoBehaviour
 			if (PlayerPrefs.GetInt ("Car" + _current)>0) {
 				_priceButton.gameObject.SetActive (false);
 				_buy.SetActive (false);
+				_rewardbtn.SetActive (false);
 				_select.SetActive (true);
 			}else{
 				_priceButton.gameObject.SetActive (true);
 				_priceButton.transform.GetChild (0).GetComponent<Text> ().text = _prices [_current].ToString ();
 				_select.SetActive (false);
 				_buy.SetActive (true);
+				_rewardbtn.SetActive (true);
 			}
 		}
 		Debug.Log ("CurrentCarIndex-->>: " + _current + " Price--->> "+_prices[_current]);
+	}
+
+	public void Rewardbtn()
+    {
+		CASAds.instance.ShowRewarded(() => { PlayerPrefs.SetInt("Car" + _current, 1); });
+		_rewardbtn.SetActive(false);
+		_buy.SetActive(false);
+		_priceButton.gameObject.SetActive(false);
+		_select.SetActive(true);
+		
+		
 	}
 	public void buy()
 	{
@@ -169,6 +186,7 @@ public class CarSelection : MonoBehaviour
 		{
 			// we dont need to show price & buy of first car as it is purchased for ride
 			_buy.SetActive (false);
+			_rewardbtn.SetActive (false);
 
 			//Activating the Select Button true
 			_select.SetActive (true);
@@ -200,7 +218,8 @@ public class CarSelection : MonoBehaviour
 
 		}
 	}
-
+	
+	
 	public void exitNotEnough()
     {
 
