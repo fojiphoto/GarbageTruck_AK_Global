@@ -518,10 +518,10 @@ TextureImporter:
       name: atlas_19
       rect:
         serializedVersion: 2
-        x: 11
-        y: 657
-        width: 1947
-        height: 499
+        x: 0
+        y: 644
+        width: 1978
+        height: 520
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1581,6 +1581,48 @@ TextureImporter:
       bones: []
       spriteID: 215c5c43b32ef5440bafafb8549da6eb
       internalID: 119719180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atlas_27
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 653
+        width: 1951
+        height: 511
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc1a15c6a8e2a645b0b6d8a011818c3
+      internalID: 1963913072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atlas_33
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1610
+        width: 85
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 1, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2492f6b7fd3b254989fb522f6a56d3c
+      internalID: -128681815
       vertices: []
       indices: 
       edges: []

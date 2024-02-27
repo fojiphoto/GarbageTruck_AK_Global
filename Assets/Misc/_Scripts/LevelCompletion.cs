@@ -230,7 +230,9 @@ public class LevelCompletion : MonoBehaviour
 				_levelCompletePanel.SetActive (true);
 				int a = PlayerPrefs.GetInt("LevelNumber");
 				Debug.Log("a = " + PlayerPrefs.GetInt("LevelNumber"));
-				_controllerButtons.SetActive (false);
+                PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
+
+                _controllerButtons.SetActive (false);
 				if (a == 1)
 				{
 					PlayerPrefs.SetInt("Unlock", 1);

@@ -158,10 +158,10 @@ public class LevelManager : MonoBehaviour
 		//AdsManager.instance.isAdShowing = true;
 		//AdsManager.instance?.ShowInterstitialWithoutConditions("showing ad");
 		CASAds.instance.ShowInterstitial();
-		Invoke("Function_to_enable_appopen", 3f);
-		
-		PlayerPrefs.SetInt("Gameplay", 1);
-		Time.timeScale = 1;
+        //Invoke("Function_to_enable_appopen", 3f);
+
+        PlayerPrefs.SetInt("Gameplay", 1);
+        Time.timeScale = 1;
 		AudioListener.volume = 1;
 		n = 1;
 
