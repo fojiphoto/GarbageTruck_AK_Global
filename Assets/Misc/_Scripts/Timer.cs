@@ -20,20 +20,20 @@ public class Timer : MonoBehaviour {
 	public static bool Ads;
 	void Start()
 	{
-		startTime = TimeValues [PlayerPrefs.GetInt ("LevelNumber") - 1]+60*5;
+		startTime = TimeValues[PlayerPrefs.GetInt ("LevelNumber") -1]+ 60*5;
 		Ads = true;
 	}
 	void Update () 
     {
 		
 		startTime = startTime - Time.deltaTime;
-		
+		Debug.Log("time" + startTime);
 		string minutes = ((int)startTime / 60).ToString();
 		string seconds = (startTime % 60).ToString("f0");
 		
 		timeText.text = minutes + " : " + seconds;
 		
-		if (startTime <= 0&&Ads==true) {
+		if (startTime <= 0/*&&Ads==true*/) {
 
 
 			Time.timeScale = 0.1f;

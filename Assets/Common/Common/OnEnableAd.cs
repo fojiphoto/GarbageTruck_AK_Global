@@ -7,7 +7,7 @@ public class OnEnableAd : MonoBehaviour
         //AdsManager.Instance?.ShowMRec();
         if (PlayerPrefs.GetInt("NoAds") < 1)
         {
-            CASAds.instance.ShowMrecBanner(CAS.AdPosition.TopCenter);
+            CASAds.instance.ShowMrecBanner(CAS.AdPosition.BottomLeft);
         }
     }
 }

@@ -91,6 +91,7 @@
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_FX_Dot_Circle.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blur_Noise.cs" />
     <Compile Include="Assets\Misc\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_InspectorHelp.cs" />
+    <Compile Include="Assets\Ads\Logger.cs" />
     <Compile Include="Assets\Misc\City Adventure\Plugins\AnimationSystem\NodeScriptUI.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blend2Camera_SplitScreen3D.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Atmosphere_Fog.cs" />
@@ -166,7 +167,7 @@
     <Compile Include="Assets\RealisticCarControllerV3\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blend2Camera_HardLight.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Scripts\RCC_Chassis.cs" />
-    <Compile Include="Assets\FallingObject.cs" />
+    <Compile Include="Assets\Misc\_Scripts\FallingObject.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_3D_Myst.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Scripts\CarController.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_TV_VHS.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Assets\Misc\kolmich\KGFMapSystem\scripts\KGFMapSystemPlayMaker.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blend2Camera_Overlay.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Scripts\RCC_SuspensionArm.cs" />
+    <Compile Include="Assets\Ads\FirebaseInitialize.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\SunShafts.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Scripts\RCC_ChangableWheels.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
@@ -239,7 +241,7 @@
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Pixelisation_DeepOilPaintHQ.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blend2Camera_ColorBurn.cs" />
-    <Compile Include="Assets\GetMusic.cs" />
+    <Compile Include="Assets\Misc\_Scripts\GetMusic.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Glitch_Mozaic.cs" />
     <Compile Include="Assets\Misc\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutodestructWhenNoChildren.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_NightVision_4.cs" />
@@ -279,7 +281,7 @@
     <Compile Include="Assets\Misc\Area730\TextureBlocks\Scripts\Bezier.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_EyesVision_2.cs" />
-    <Compile Include="Assets\Truckprop.cs" />
+    <Compile Include="Assets\Misc\_Scripts\Truckprop.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_TV_Horror.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Vision_SniperScore.cs" />
@@ -320,6 +322,7 @@
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Atmosphere_Rain.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blend2Camera_LinearLight.cs" />
     <Compile Include="Assets\Misc\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets\Ads\CASAds.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Scripts\RCC_MobileButtons.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_TV_Noise.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Vision_AuraDistortion.cs" />
@@ -380,7 +383,7 @@
     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\SendProgressionEvent.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Drawing_NewCellShading.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\setactive.cs" />
+    <Compile Include="Assets\Misc\_Scripts\setactive.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Noise_TV_2.cs" />
     <Compile Include="Assets\Misc\City Adventure\Plugins\CameraFollow.cs" />
@@ -432,10 +435,9 @@
     <Compile Include="Assets\RealisticCarControllerV3\Scripts\RCC_AIBrakeZonesContainer.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_NewGlitch2.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Lut_TestMode.cs" />
-    <Compile Include="Assets\SplashManager.cs" />
+    <Compile Include="Assets\Misc\_Scripts\SplashManager.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Scripts\Camera\CameraDefault.cs" />
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\ILRD\Aequus\GAAequusIntegration.cs" />
-    <Compile Include="Assets\CASAds.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\NewImageEffects\Tonemapping\TonemappingLut.cs" />
     <Compile Include="Assets\Misc\kolmich\KGFCore\scripts\KGFString.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blur_Movie.cs" />
@@ -497,6 +499,7 @@
     <Compile Include="Assets\Misc\Deformation\License.cs" />
     <Compile Include="Assets\Misc\_Scripts\CanvasGamePlay.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blend2Camera_Divide.cs" />
+    <Compile Include="Assets\Ads\AdmobGA_Helper.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Drawing_Manga_Color.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blur_BlurHole.cs" />
     <Compile Include="Assets\Misc\_Scripts\CarChanger.cs" />
@@ -599,6 +602,7 @@
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Scripts\TrailerController.cs" />
     <Compile Include="Assets\Misc\Area730\TextureBlocks\Scripts\TextureBlock.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Oculus_NightVision5.cs" />
+    <Compile Include="Assets\Ads\AdmobGA_Events.cs" />
     <Compile Include="Assets\SWS\Scripts\Manager\PathManager.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_OldFilm_Cutting1.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
@@ -636,7 +640,6 @@
     <Compile Include="Assets\Misc\City Adventure\Plugins\AnimationSystem\CarPath.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_FX_Plasma.cs" />
-    <Compile Include="Assets\FirebaseInitialize.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Vision_Aura.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_3D_Computer.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Standard Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
@@ -703,12 +706,12 @@
     <Compile Include="Assets\GameAnalytics\Plugins\Scripts\State\GAState.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\MotionBlur.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Glasses_On_2.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\Misc\_Scripts\PlayerController.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Color_RGB.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Lut_2_Lut_Extra.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
     <Compile Include="Assets\Misc\kolmich\KGFMapSystem\scripts\KGFMapSystem.cs" />
-    <Compile Include="Assets\mrecscript.cs" />
+    <Compile Include="Assets\Misc\_Scripts\mrecscript.cs" />
     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
     <Compile Include="Assets\Misc\_Scripts\soundsManager.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Blur_GaussianBlur.cs" />
@@ -759,6 +762,7 @@
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Atmosphere_Rain_Pro_3D.cs" />
     <Compile Include="Assets\SWS\Scripts\Manager\BezierPathManager.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Standard Assets\Utility\SimpleActivatorMenu.cs" />
+    <Compile Include="Assets\Misc\_Scripts\CoinBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Camera Filter Pack\Resources\CameraFilterPack_FX_ZebraColor.shader" />

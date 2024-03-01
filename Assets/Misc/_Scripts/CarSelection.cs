@@ -1,9 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
+using TMPro;
 
 public class CarSelection : MonoBehaviour
 {
+	[Serializable]
+	public class TruckStates
+	{
+		[Range(0, 1)]
+		public float Speed;
+		[Range(0, 1)]
+		public float Brake;
+		[Range(0, 1)]
+		public float handling;
+	}
+	public TruckStates[] truckStates;
+	public Slider speedSlider;
+	public Slider brakeSlider;
+	public Slider handlingSlider;
 
 	public GameObject _modeSelection;
 	public Material _dumperMaterial;
@@ -28,7 +44,9 @@ public class CarSelection : MonoBehaviour
 	public GameObject _rewardbtn;
 	public Button _priceButton;
 	public GameObject _carSelection;
-	public Text _coins;
+	
+	//public Text _coins;
+	public TextMeshProUGUI _coins;
 
 	private int _current;
 	private int _prev;
@@ -56,7 +74,7 @@ public class CarSelection : MonoBehaviour
 
 
 		// Coins dtails showing on the car selection canvas
-		_coins.text = " " + PlayerPrefs.GetInt("Coins");
+		
 
 		// Activating Car Selection panel if its inactive 
 		if(!_carSelection.activeSelf)
@@ -78,16 +96,19 @@ public class CarSelection : MonoBehaviour
 		_buy.SetActive (false);
 		_rewardbtn.SetActive (false);
 		_select.SetActive (true);
-
-	//	_rotatingCamera.GetComponent<CameraMove> ().target = _vehicles [0].gameObject.transform;
+		_coins.text = " " + PlayerPrefs.GetInt("Coins");
+		//	_rotatingCamera.GetComponent<CameraMove> ().target = _vehicles [0].gameObject.transform;
 		// showing the detail of cars
 		Debug.Log (" Car Selection Rotating Camera Target:->>> " + _rotatingCamera.GetComponent<CameraMove> ().target );
 		Debug.Log ("CurrentCarIndex-->>: " + _current + " Price--->> 0");
 		Debug.Log ("Color Panel of " + _vehicleColorPanels [_current].gameObject.name  + " is activated ");
 	}
 
-
-	public void right()
+    private void Update()
+    {
+		
+	}
+    public void right()
     {
 
 		buttonClicked ();
@@ -99,6 +120,7 @@ public class CarSelection : MonoBehaviour
 			_vehicles [_current].SetActive (false);
 			_vehicles [_current + 1].SetActive (true);
 
+			states();
 
 			_vehicleColorPanels [_current].SetActive (false);
 			_vehicleColorPanels [_current + 1].SetActive (true);
@@ -126,6 +148,7 @@ public class CarSelection : MonoBehaviour
 			}
 				
 		}
+		_coins.text = " " + PlayerPrefs.GetInt("Coins");
 		Debug.Log ("CurrentCarIndex-->>: " + _current + " Price--->> "+_prices[_current]);
 		Debug.Log ("Color Panel of " + _vehicleColorPanels [_current].gameObject.name  + " is activated ");
 	}
@@ -139,7 +162,7 @@ public class CarSelection : MonoBehaviour
 			_vehicles [_current].SetActive (false);
 			_vehicles [_current - 1].SetActive (true);
 
-	
+			states();
 
 			_vehicleColorPanels[_current].SetActive(false);
 			_vehicleColorPanels [_current - 1].SetActive (true);
@@ -166,9 +189,15 @@ public class CarSelection : MonoBehaviour
 				_rewardbtn.SetActive (true);
 			}
 		}
+		_coins.text = " " + PlayerPrefs.GetInt("Coins");
 		Debug.Log ("CurrentCarIndex-->>: " + _current + " Price--->> "+_prices[_current]);
 	}
-
+	void states()
+    {
+		speedSlider.value = truckStates[_current].Speed;
+		brakeSlider.value = truckStates[_current].Brake;
+		handlingSlider.value = truckStates[_current].handling;
+    }
 	public void Rewardbtn()
     {
 		CASAds.instance.ShowRewarded(() => { PlayerPrefs.SetInt("Car" + _current, 1); });
@@ -176,11 +205,12 @@ public class CarSelection : MonoBehaviour
 		_buy.SetActive(false);
 		_priceButton.gameObject.SetActive(false);
 		_select.SetActive(true);
-		
-		
+		_coins.text = " " + PlayerPrefs.GetInt("Coins");
+
 	}
 	public void buy()
 	{
+		_coinsCash = PlayerPrefs.GetInt("Coins");
 		// if total coin cash is greater than or eqaul to current car price 
 		if (_coinsCash >= _prices [_current]) 
 		{
@@ -197,18 +227,19 @@ public class CarSelection : MonoBehaviour
 			_coinsCash = _coinsCash - _prices [_current];   
 
 			//Displaying the Total Remaing cash
-			_coins.transform.GetChild (0).GetComponent<Text> ().text = _coinsCash.ToString();
+			//_coins.transform.GetChild (0).GetComponent<Text> ().text = _coinsCash.ToString();
 
 			//Displaing the CarIndex which is being purchased
 			Debug.Log ("The Car Index: " + _current + " Price: " + _prices[_current] + "IsPurchased");
 
 			//Setting the PlayerPref for total cash after purcahsing the vehical 
-			PlayerPrefs.SetInt ("Coins", _coinsCash);  
+			PlayerPrefs.SetInt("Coins", _coinsCash);
+			
 
 			//Displaying Total Cash on console
 			Debug.Log ("TotalCash: " + PlayerPrefs.GetInt ("Coins"));
 
-
+			_coins.text = " " + PlayerPrefs.GetInt("Coins");
 			PlayerPrefs.SetInt ("Car" + _current, 1); // set the playerpreference for car been purchased
 
 		} else 

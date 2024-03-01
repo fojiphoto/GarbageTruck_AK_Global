@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class MainMenuScript : MonoBehaviour
 {
-
+	
 	// Use this for initialization
 	public GameObject _modeSelection;
 	public GameObject _garageCamera;
@@ -25,9 +25,10 @@ public class MainMenuScript : MonoBehaviour
 	private float _dummySliderValue;
 	public GameObject PrivicyPenal;
 
+	public TextMeshProUGUI _coins;
 
 
-    private void Awake()
+	private void Awake()
     {
 		
 
@@ -52,7 +53,7 @@ public class MainMenuScript : MonoBehaviour
 		PlayerPrefs.SetInt("Car0", 1);
 		Time.timeScale = 1;
 
-	
+		_coins.text = " " + PlayerPrefs.GetInt("Coins");
 
 
 	}	
@@ -60,7 +61,7 @@ public class MainMenuScript : MonoBehaviour
 	{
 		//AbdulRehman
 		//AdsManager.instance?.ShowBanner();
-		CASAds.instance.ShowBanner(CAS.AdPosition.TopCenter);
+		CASAds.instance.ShowBanner(CAS.AdPosition.BottomCenter);
 		//AdsManager.instance?.ShowAppOpenAdIfReady();
 	}
 	public void Play()
@@ -234,7 +235,8 @@ public class MainMenuScript : MonoBehaviour
 
 	public void GETCOIN()
 	{
-		PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 2500);
+		PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 500);
+		_coins.text = " " + PlayerPrefs.GetInt("Coins");
 	}
 
 }

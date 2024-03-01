@@ -104,13 +104,16 @@ public class LevelManager : MonoBehaviour
 
 		_levels[_selectedLevelIndex].gameObject.transform.GetChild(_selectedCarIndex).gameObject.SetActive(true);
 		Debug.Log("LETS CHECK------>>>: " + _levels[_selectedCarIndex].gameObject.transform.GetChild(_selectedCarIndex).gameObject.name);
+		
+		Debug.Log("LevelCheckkkkkkkkkkkk"+ PlayerPrefs.GetInt("LevelNumber"));
 		if (PlayerPrefs.GetInt("LevelNumber") < 10)
 		{
 			RenderSettings.skybox = weather[0];
 		}
 		else if (PlayerPrefs.GetInt("LevelNumber") < 20)
 		{
-			RenderSettings.skybox = weather[1]; Snow.enabled = true;
+			RenderSettings.skybox = weather[1];
+			Snow.enabled = true;
 		}
 		else if (PlayerPrefs.GetInt("LevelNumber") < 30)
 		{
@@ -164,8 +167,9 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1;
 		AudioListener.volume = 1;
 		n = 1;
-
+		//Here i need to write a code
 		AdsPannel.SetActive(true);
+		
 	}
 
 	public void SkipLevel()

@@ -26,17 +26,17 @@ public class unlock : MonoBehaviour {
 		{
 			PlayerPrefs.SetInt("UnlockStatus2", PlayerPrefs.GetInt("Unlock2"));
 		}
-        for (int loci = 0; loci <= PlayerPrefs.GetInt("UnlockStatus"); loci++)
+        for ( loci = 0; loci <= PlayerPrefs.GetInt("UnlockStatus"); loci++)
         {
            
             Locks[loci].SetActive(false);
         }
-        for (int loci1 = 0; loci1 <= PlayerPrefs.GetInt("UnlockStatus1"); loci1++)
+        for (loci1 = 0; loci1 <= PlayerPrefs.GetInt("UnlockStatus1"); loci1++)
         {
        
             Locks1[loci1].SetActive(false);
         }
-		for (int loci2 = 0; loci2 <= PlayerPrefs.GetInt("UnlockStatus2"); loci2++)
+		for (loci2 = 0; loci2 <= PlayerPrefs.GetInt("UnlockStatus2"); loci2++)
 		{
 
 			Locks2[loci2].SetActive(false);

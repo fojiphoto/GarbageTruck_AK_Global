@@ -63,9 +63,9 @@ public class LevelSelectionPanel : MonoBehaviour
 	public void ModeSelected(int mode)
 	{
 		
-		buttonClicked ();
+		buttonClicked();
 		
-		PlayerPrefs.SetInt ("mode",mode);
+		PlayerPrefs.SetInt("mode",mode);
 		
 		if (mode == 1) {
 			//AbdulRehman
@@ -74,9 +74,9 @@ public class LevelSelectionPanel : MonoBehaviour
 			CASAds.instance.ShowInterstitial();
 
 
-			Invoke("Function_to_enable_appopen", 3f); 
+			//Invoke("Function_to_enable_appopen", 3f); 
 			_modeSelectionPanel.SetActive (false);
-			_levelSelectionPanelMode1.SetActive (true);
+			_levelSelectionPanelMode1.SetActive	(true);
 			_levelSelectionPanelMode2.SetActive (false);
 			_levelSelectionPanelMode3.SetActive (false);
 			x = 1;
@@ -116,9 +116,9 @@ public class LevelSelectionPanel : MonoBehaviour
         PlayerPrefs.SetInt("LevelNumber", levelNumber);
 		Debug.Log ("Level NO"+ levelNumber);
 		StartCoroutine (click());
-	
-       
-    }
+		Debug.Log("LevelCheck__________" + PlayerPrefs.GetInt("LevelNumber"));
+
+	}
 
 	public void backToCarSelectionPanel()
 	{

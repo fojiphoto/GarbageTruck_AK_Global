@@ -15,7 +15,7 @@ public class Loading : MonoBehaviour {
 	IEnumerator _Loading()
 	{
 			yield return new WaitForSeconds(1.0f);
-			SceneManager.LoadScene(3);
+			SceneManager.LoadScene("Gameplay");
 		
 
 		//	Admob.Instance ().removeBanner ();

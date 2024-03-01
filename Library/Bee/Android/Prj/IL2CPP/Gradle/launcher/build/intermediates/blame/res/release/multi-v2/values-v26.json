@@ -1,0 +1,66 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\UnityProjects\\GarbageTruck_AK_Global\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\launcher\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v26\\values-v26.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\f94a9962e8494fed25dbdf55f4217f1c\\jetified-same-16.5.91\\res\\values-v26\\values-v26.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,158",
+                        "endLines": "2,5",
+                        "endColumns": "102,12",
+                        "endOffsets": "153,328"
+                    },
+                    "to": {
+                        "startLines": "17,19",
+                        "startColumns": "4,4",
+                        "startOffsets": "934,1130",
+                        "endLines": "17,21",
+                        "endColumns": "102,12",
+                        "endOffsets": "1032,1300"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\df8d93bc04aac3f7bbf0f345e961df4f\\jetified-reward-16.5.91\\res\\values-v26\\values-v26.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "100,193",
+                        "endLines": "2,14",
+                        "endColumns": "92,16",
+                        "endOffsets": "188,1070"
+                    },
+                    "to": {
+                        "startLines": "18,22",
+                        "startColumns": "4,4",
+                        "startOffsets": "1037,1305",
+                        "endLines": "18,33",
+                        "endColumns": "92,16",
+                        "endOffsets": "1125,2182"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\59a566a8ba9b2308b588dc75fd162093\\appcompat-1.5.1\\res\\values-v26\\values-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,381,557,796",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,376,552,791,884"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "100,175,262,426,602,841",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "170,257,421,597,836,929"
+                    }
+                }
+            ]
+        }
+    ]
+}

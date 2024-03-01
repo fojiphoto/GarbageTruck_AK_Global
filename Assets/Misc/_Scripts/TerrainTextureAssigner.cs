@@ -278,8 +278,8 @@ public class TerrainTextureAssigner : MonoBehaviour {
 			}
 		}
 
-		terraindata.splatPrototypes = tex;
-		terraindata2.splatPrototypes = tex;
+		//terraindata.splatPrototypes = tex;
+		//terraindata2.splatPrototypes = tex;
 		//terrain = Terrain.CreateTerrainGameObject (terraindata).GetComponent<Terrain> ();
 
 		//this.gameObject.GetComponent<TerrainTextureAssigner> ().enabled = false;

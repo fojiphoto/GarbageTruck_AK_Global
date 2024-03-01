@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEditor;
 
 public class LevelCompletion : MonoBehaviour
 {
@@ -33,7 +33,7 @@ public class LevelCompletion : MonoBehaviour
 	public int currentHealth = 0;
 	public int collectgarbage = 0;
 	public Truckprop healthbar,collect;
-
+	private bool Iscompl;
     private void Awake()
     {
 		camera = GameObject.FindObjectOfType<RCC_Camera>();
@@ -41,6 +41,7 @@ public class LevelCompletion : MonoBehaviour
 		StopPos = GameObject.FindGameObjectWithTag("drop");
 		stoppingpoints = Levelmanager.TrashPointsByLevel[PlayerPrefs.GetInt("LevelNumber")];
 		Debug.Log("stoppingpoints"+stoppingpoints);
+		Iscompl = true;
 	}
 
 	
@@ -54,7 +55,8 @@ public class LevelCompletion : MonoBehaviour
 		
 
 	}
-	public void TargetToFollow()
+    
+    public void TargetToFollow()
 	{
 		if (currentTargetIndex < 4)
 		{
@@ -210,7 +212,8 @@ public class LevelCompletion : MonoBehaviour
     void OnTriggerStay(Collider col)
 	{
 
-		if (col.gameObject.tag == "drop") {
+		if (col.gameObject.tag == "drop") 
+		{
 
 			this.GetComponent<Rigidbody>().drag = 5;
 			if (!_barCompletion.gameObject.activeSelf) 
@@ -219,20 +222,25 @@ public class LevelCompletion : MonoBehaviour
 			}
 
 
-			if (_barCompletion.transform.GetChild (0).GetComponent<Image> ().fillAmount < 1) {
+			if (_barCompletion.transform.GetChild(0).GetComponent<Image>().fillAmount < 1)
+			{
 
-				_barCompletion.transform.GetChild (0).GetComponent<Image> ().fillAmount += 0.008f;
+				_barCompletion.transform.GetChild(0).GetComponent<Image>().fillAmount += 0.008f;
 
-			} 
+			}
 			else
-            {
-				int _levelcompleted = PlayerPrefs.GetInt ("LevelCompleted");
-				_levelCompletePanel.SetActive (true);
+			{
+				int _levelcompleted = PlayerPrefs.GetInt("LevelCompleted");
+				_levelCompletePanel.SetActive(true);
 				int a = PlayerPrefs.GetInt("LevelNumber");
 				Debug.Log("a = " + PlayerPrefs.GetInt("LevelNumber"));
-                PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
-
-                _controllerButtons.SetActive (false);
+                //PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
+                if (Iscompl)
+                {
+					PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
+					Iscompl = false;
+				}
+				_controllerButtons.SetActive(false);
 				if (a == 1)
 				{
 					PlayerPrefs.SetInt("Unlock", 1);
@@ -353,10 +361,8 @@ public class LevelCompletion : MonoBehaviour
 				{
 					PlayerPrefs.SetInt("Unlock2", 10);
 				}
-
-
-
 			}
+			
 		}
 	}
 	void OnTriggerExit(Collider obj)

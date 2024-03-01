@@ -1,0 +1,58 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\UnityProjects\\GarbageTruck_AK_Global\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\launcher\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v28\\values-v28.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\59a566a8ba9b2308b588dc75fd162093\\appcompat-1.5.1\\res\\values-v28\\values-v28.xml",
+                    "from": {
+                        "startLines": "2,3,4,8",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,130,217,397",
+                        "endLines": "2,3,7,11",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "125,212,392,584"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\1f84e1ba60765ecb1566ce9e277b9952\\jetified-ads-sdk-5.7.0.2\\res\\values-v28\\values-v28.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "395"
+                    },
+                    "to": {
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "767",
+                        "endLines": "20",
+                        "endColumns": "12",
+                        "endOffsets": "1107"
+                    }
+                },
+                {
+                    "source": "E:\\UnityProjects\\GarbageTruck_AK_Global\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\launcher\\src\\main\\res\\values-v28\\styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "2",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "10",
+                        "endOffsets": "230"
+                    },
+                    "to": {
+                        "startLines": "12",
+                        "startColumns": "4",
+                        "startOffsets": "589",
+                        "endLines": "14",
+                        "endColumns": "10",
+                        "endOffsets": "762"
+                    }
+                }
+            ]
+        }
+    ]
+}
