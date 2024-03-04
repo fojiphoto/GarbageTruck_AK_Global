@@ -1017,6 +1017,7 @@
 "Assets/RealisticCarControllerV3/Standard Assets/Utility/TimedObjectDestructor.cs"
 "Assets/RealisticCarControllerV3/Standard Assets/Utility/WaypointCircuit.cs"
 "Assets/RealisticCarControllerV3/Standard Assets/Utility/WaypointProgressTracker.cs"
+"Assets/SoundMusic.cs"
 "Assets/SWS/Examples/Scripts/CameraInputDemo.cs"
 "Assets/SWS/Examples/Scripts/EventCollisionTrigger.cs"
 "Assets/SWS/Examples/Scripts/EventReceiver.cs"
@@ -1067,6 +1068,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/Timmertext.cs"
 -langversion:9.0
 
 /deterministic

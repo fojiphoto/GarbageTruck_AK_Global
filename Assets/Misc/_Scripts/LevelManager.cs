@@ -204,7 +204,8 @@ public class LevelManager : MonoBehaviour
 	public void Restart()
 	{
 		Scene scene = SceneManager.GetActiveScene();
-		SceneManager.LoadScene(scene.name);
+		//SceneManager.LoadScene(scene.name);
+		SceneManager.LoadScene("Gameplay");
 		//AdsManager.instance.Admob_Unity_Intersitital();
 	}
 

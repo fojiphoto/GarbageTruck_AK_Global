@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <preference name="AllowInlineMediaPlayback" value="true"></preference>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            position: relative;
+            background: #000;
+        }
+
+        #adContainer {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<div id="adContainer">
+</div>
+
+<script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+<script>
+        var onAdError = function (adErrorEvent) {
+            SspnetSDK.reportError(adErrorEvent.getError().toString());
+        };
+
+        var onAdLoaded = function () {
+            SspnetSDK.reportLoad();
+        };
+
+        var onAdComplete = function () {
+            SspnetSDK.reportComplete();
+        };
+
+        var onProgressChanged = function (event) {
+            SspnetSDK.reportProgress(event.getAdData().currentTime, event.getAdData().duration);
+        };
+
+        try {
+            var adm = SspnetSDK.getAdMarkup();
+
+            google.ima.settings.setVpaidMode(google.ima.ImaSdkSettings.VpaidMode.INSECURE);
+
+            var video = document.createElement('video'); video.volume = 1;
+            var adContainer = document.getElementById('adContainer');
+            var adsManager;
+
+            var onAdsManagerLoaded = function (adsManagerLoadedEvent) {
+                adsManager = adsManagerLoadedEvent.getAdsManager(video);
+                adsManager.addEventListener(google.ima.AdErrorEvent.Type.AD_ERROR, onAdError);
+                adsManager.addEventListener(google.ima.AdEvent.Type.LOADED, onAdLoaded);
+                adsManager.addEventListener(google.ima.AdEvent.Type.COMPLETE, onAdComplete);
+                adsManager.addEventListener(google.ima.AdEvent.Type.AD_PROGRESS, onProgressChanged);
+                adsManager.init(adContainer.clientWidth, adContainer.clientHeight, google.ima.ViewMode.FULLSCREEN);
+
+                window.addEventListener('resize', function () {
+                    adsManager.resize(adContainer.clientWidth, adContainer.clientHeight, google.ima.ViewMode.FULLSCREEN);
+                });
+
+            };
+
+            var adDisplayContainer = new google.ima.AdDisplayContainer(adContainer);
+            adDisplayContainer.initialize();
+
+            var adsLoader = new google.ima.AdsLoader(adDisplayContainer);
+            adsLoader.getSettings().setVpaidMode(google.ima.ImaSdkSettings.VpaidMode.ENABLED);
+            adsLoader.addEventListener(google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, onAdsManagerLoaded);
+            adsLoader.addEventListener(google.ima.AdErrorEvent.Type.AD_ERROR, onAdError);
+
+            var adsRequest = new google.ima.AdsRequest();
+            adsRequest.adsResponse = adm;
+            adsLoader.requestAds(adsRequest);
+        } catch (error) {
+            SspnetSDK.reportError(error.toString());
+        }
+
+</script>
+</body>
+
+</html>

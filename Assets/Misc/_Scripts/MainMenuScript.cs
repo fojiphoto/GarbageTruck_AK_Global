@@ -24,14 +24,18 @@ public class MainMenuScript : MonoBehaviour
 	public Slider _musicSlider;
 	private float _dummySliderValue;
 	public GameObject PrivicyPenal;
-
 	public TextMeshProUGUI _coins;
+
+	public static MainMenuScript instance;
 
 
 	private void Awake()
     {
 		
-
+		if(instance == null)
+        {
+			instance = this;
+        }
 
 		if (PlayerPrefs.GetInt("PP")==0)
         {
@@ -41,7 +45,8 @@ public class MainMenuScript : MonoBehaviour
 		{
 			//PrivicyPenal.SetActive(false);
     	}
-    }
+		_coins.text = " " + PlayerPrefs.GetInt("Coins");
+	}
     void Start()
     {
 		Invoke("YourFunction", 2f);
@@ -148,7 +153,8 @@ public class MainMenuScript : MonoBehaviour
         {
             _quitPanel.SetActive(true);
         }
-    }
+		_coins.text = " " + PlayerPrefs.GetInt("Coins");
+	}
 
 	public void buttonClicked(){
 		this.gameObject.GetComponent<AudioSource> ().Play ();

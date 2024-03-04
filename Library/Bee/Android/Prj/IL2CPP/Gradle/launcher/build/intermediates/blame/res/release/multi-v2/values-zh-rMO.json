@@ -4,7 +4,7 @@
             "outputFile": "E:\\UnityProjects\\GarbageTruck_AK_Global\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\launcher\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-zh-rMO\\values-zh-rMO.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\ae9761b0889d2c68048432762240a243\\jetified-applovin-sdk-12.1.0\\res\\values-zh-rMO\\values-zh-rMO.xml",
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\a056984828b95965eadb4f50440441d9\\jetified-applovin-sdk-12.2.0\\res\\values-zh-rMO\\values-zh-rMO.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

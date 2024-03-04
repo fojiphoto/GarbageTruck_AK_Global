@@ -4,26 +4,7 @@
             "outputFile": "E:\\UnityProjects\\GarbageTruck_AK_Global\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\launcher\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v26\\values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\f94a9962e8494fed25dbdf55f4217f1c\\jetified-same-16.5.91\\res\\values-v26\\values-v26.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,158",
-                        "endLines": "2,5",
-                        "endColumns": "102,12",
-                        "endOffsets": "153,328"
-                    },
-                    "to": {
-                        "startLines": "17,19",
-                        "startColumns": "4,4",
-                        "startOffsets": "934,1130",
-                        "endLines": "17,21",
-                        "endColumns": "102,12",
-                        "endOffsets": "1032,1300"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\df8d93bc04aac3f7bbf0f345e961df4f\\jetified-reward-16.5.91\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\ed875d61cedde74249b799aedad7ca08\\jetified-reward-16.6.41\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -39,6 +20,25 @@
                         "endLines": "18,33",
                         "endColumns": "92,16",
                         "endOffsets": "1125,2182"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\65c4745f9ece01031244b28b23e38ff2\\jetified-same-16.6.41\\res\\values-v26\\values-v26.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,158",
+                        "endLines": "2,5",
+                        "endColumns": "102,12",
+                        "endOffsets": "153,328"
+                    },
+                    "to": {
+                        "startLines": "17,19",
+                        "startColumns": "4,4",
+                        "startOffsets": "934,1130",
+                        "endLines": "17,21",
+                        "endColumns": "102,12",
+                        "endOffsets": "1032,1300"
                     }
                 },
                 {

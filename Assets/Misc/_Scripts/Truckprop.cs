@@ -23,7 +23,7 @@ public class Truckprop : MonoBehaviour
     public void  GarbageFill(int collect)
     {
 
-        Collectionfill.DOValue(collect, 1f);
+        Collectionfill.DOValue(collect, 2f);
         Debug.Log("Collect" +collect);
     }
 

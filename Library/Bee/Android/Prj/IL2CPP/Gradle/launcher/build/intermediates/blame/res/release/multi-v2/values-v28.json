@@ -12,10 +12,28 @@
                         "endLines": "2,3,7,11",
                         "endColumns": "74,86,12,12",
                         "endOffsets": "125,212,392,584"
+                    },
+                    "to": {
+                        "startLines": "14,15,16,20",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "1141,1216,1303,1483",
+                        "endLines": "14,15,19,23",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "1211,1298,1478,1670"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\1f84e1ba60765ecb1566ce9e277b9952\\jetified-ads-sdk-5.7.0.2\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\c677d7e753526dc6c1bc12b12ef9e0e7\\material-1.6.0\\res\\values-v28\\values-v28.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,248,343,441,529,617,705,793,880,967,1054",
+                        "endColumns": "97,94,94,97,87,87,87,87,86,86,86,86",
+                        "endOffsets": "148,243,338,436,524,612,700,788,875,962,1049,1136"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Factorial Studio\\.gradle\\caches\\transforms-2\\files-2.1\\902415df762010e69744feea08d404d2\\jetified-ads-sdk-5.7.0.6\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -25,12 +43,12 @@
                         "endOffsets": "395"
                     },
                     "to": {
-                        "startLines": "15",
+                        "startLines": "27",
                         "startColumns": "4",
-                        "startOffsets": "767",
-                        "endLines": "20",
+                        "startOffsets": "1853",
+                        "endLines": "32",
                         "endColumns": "12",
-                        "endOffsets": "1107"
+                        "endOffsets": "2193"
                     }
                 },
                 {
@@ -44,12 +62,12 @@
                         "endOffsets": "230"
                     },
                     "to": {
-                        "startLines": "12",
+                        "startLines": "24",
                         "startColumns": "4",
-                        "startOffsets": "589",
-                        "endLines": "14",
+                        "startOffsets": "1675",
+                        "endLines": "26",
                         "endColumns": "10",
-                        "endOffsets": "762"
+                        "endOffsets": "1848"
                     }
                 }
             ]

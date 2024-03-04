@@ -18,16 +18,30 @@ public class Timer : MonoBehaviour {
 	public GameObject _GameUI;
 	public float startTime;
 	public static bool Ads;
-	void Start()
+	public static Timer instance;
+	[HideInInspector] public Text timetoshow;
+
+	[HideInInspector]
+	public float totalStartTime;
+    private void Awake()
+    {
+        if(instance == null)
+        {
+			instance = this;
+        }
+    }
+
+    void Start()
 	{
 		startTime = TimeValues[PlayerPrefs.GetInt ("LevelNumber") -1]+ 60*5;
+		totalStartTime = startTime;
 		Ads = true;
 	}
 	void Update () 
     {
 		
 		startTime = startTime - Time.deltaTime;
-		Debug.Log("time" + startTime);
+		
 		string minutes = ((int)startTime / 60).ToString();
 		string seconds = (startTime % 60).ToString("f0");
 		

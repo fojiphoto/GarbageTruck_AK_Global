@@ -363,6 +363,7 @@
     <Compile Include="Assets\Misc\EasyRoads3D\scripts\SurfaceScript.cs" />
     <Compile Include="Assets\Offroad Vehicle Physics Kit\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
     <Compile Include="Assets\Misc\_Scripts\TerrainTextureAssigner.cs" />
+    <Compile Include="Assets\Misc\_Scripts\CoinBar.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Standard Assets\CrossPlatformInput\Scripts\TiltInput.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_AAA_Blood_Hit.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_TV_Posterize.cs" />
@@ -762,7 +763,8 @@
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Atmosphere_Rain_Pro_3D.cs" />
     <Compile Include="Assets\SWS\Scripts\Manager\BezierPathManager.cs" />
     <Compile Include="Assets\RealisticCarControllerV3\Standard Assets\Utility\SimpleActivatorMenu.cs" />
-    <Compile Include="Assets\Misc\_Scripts\CoinBar.cs" />
+    <Compile Include="Assets\SoundMusic.cs" />
+    <Compile Include="Assets\Timmertext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Camera Filter Pack\Resources\CameraFilterPack_FX_ZebraColor.shader" />

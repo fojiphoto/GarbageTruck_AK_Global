@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mrecscript : MonoBehaviour
 {
+    public GameObject garbagefillbar;
     // Start is called before the first frame update
 
     private void OnEnable()
@@ -11,6 +12,7 @@ public class mrecscript : MonoBehaviour
         //AbdulRehman
         //AdsManager.instance?.ShowMRec(); 
         CASAds.instance.ShowMrecBanner(CAS.AdPosition.TopLeft);
+        garbagefillbar.SetActive(false);
     }
 
     private void OnDisable()

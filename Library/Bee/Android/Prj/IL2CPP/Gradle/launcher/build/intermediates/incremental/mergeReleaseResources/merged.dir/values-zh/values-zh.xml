@@ -29,6 +29,7 @@
     <string name="mbridge_reward_install">Install Now</string>
     <string name="mbridge_reward_video_view_reward_time_complete">已获得奖励</string>
     <string name="mbridge_reward_video_view_reward_time_left">s后即可获得奖励</string>
+    <string name="mbridge_reward_video_view_reward_time_left_skip_time">秒后可跳过</string>
     <string name="mbridge_reward_viewed_text_str">您浏览过的内容</string>
     <string name="tt_00_00">00:00</string>
     <string name="tt_ad_clicked_text">广告被点击</string>
