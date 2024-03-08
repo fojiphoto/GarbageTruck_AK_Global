@@ -63,10 +63,9 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.LogError("forward");
             this.transform.GetChild(0).gameObject.SetActive(true);
-           // DummyMonster.transform.GetChild(0).gameObject.SetActive(false);
-            DummyMonster.SetActive(false);
-            SplineMove.reverse = true;
-            TrashCan.SetActive(false);
+           DummyMonster.transform.GetChild(0).gameObject.SetActive(false);
+           SplineMove.reverse = true;
+           TrashCan.SetActive(false);
         }
         else
         {
@@ -94,13 +93,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("AnimationStateName: " + AnimationStateName[SplineMove.currentPoint]);
             if (SplineMove.currentPoint == 6 )
             {
-                button1.SetActive(true);
+                //button1.SetActive(true);
                 TrashCan.SetActive(false);
                 Animationplay(AnimationStateName[0]);
             }
             if (SplineMove.currentPoint == 6 && AnimationName == AnimationStateName[1])
             {   
-                button1.SetActive(false);             
+                //button1.SetActive(false);             
                
             }
             
@@ -110,14 +109,14 @@ public class PlayerController : MonoBehaviour
                 button1.SetActive(true);
                 
             }
-            else if(SplineMove.currentPoint > 0 && SplineMove.currentPoint < 6)
+            else if(SplineMove.currentPoint > 0 && SplineMove.currentPoint < 6 )
             {
                 Animationplay(AnimationStateName[4]);
-              button1.SetActive(false);
+                button1.SetActive(false);
             }
-            else
+            else if(AnimationName == AnimationStateName[4])
             {
-                //button1.SetActive(false);
+                button1.SetActive(false);
             }
         }
 
@@ -126,33 +125,29 @@ public class PlayerController : MonoBehaviour
             Drop = GameObject.FindGameObjectWithTag("drop");
         }
     }
-    //public void OnPointerClick()
-    //{
-    //    StartCoroutine(EnableButtonAfterDelay(3f));
+    public void OnPointerClick()
+    {
+        StartCoroutine(EnableButtonAfterDelay(2f));
+    }
 
-    //}
+    private IEnumerator EnableButtonAfterDelay(float delay)
+    {
+        //button1.SetActive(false);
+        //yield return new WaitForSeconds(delay);
+        //button1.SetActive(true);
+        if (button1.activeSelf)
+        {
+            button1.SetActive(false);
 
-    //private IEnumerator EnableButtonAfterDelay(float delay)
-    //{
-    //    if (button1.interactable)
-    //    {
-    //        button1.interactable = false;
+            yield return new WaitForSeconds(delay);
+            button1.SetActive(true);
+        }
+        else if (!button1.activeSelf)
+        {
+            button1.SetActive(true);
 
-    //        yield return new WaitForSeconds(delay);
-    //        button1.interactable = true;
-
-
-    //    }
-
-    //    else if(!button1.interactable)
-    //    {
-    //        button1.interactable = true;
-
-    //        yield return new WaitForSeconds(delay);
-    //        button1.interactable = false;
-
-
-    //    } }
-
-
+            yield return new WaitForSeconds(delay);
+            button1.SetActive(false);
+        }
+    }
 }

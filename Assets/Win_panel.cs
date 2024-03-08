@@ -7,6 +7,7 @@ public class Win_panel : MonoBehaviour
     public GameObject _rccCanvas;
     public GameObject _controllerButtons;
     public GameObject _levelCompletePanel;
+    public GameObject _levelFailPanel;
     private bool Iscompl;
 
 
@@ -20,6 +21,7 @@ public class Win_panel : MonoBehaviour
             int _levelcompleted = PlayerPrefs.GetInt("LevelCompleted");
             _rccCanvas.SetActive(true);
             _levelCompletePanel.SetActive(true);
+            _levelFailPanel.SetActive(false);
             int a = PlayerPrefs.GetInt("LevelNumber");
             //Debug.Log("a = " + PlayerPrefs.GetInt("LevelNumber"));
             //PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);

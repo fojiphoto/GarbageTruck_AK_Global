@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 using UnityEditor;
 
 public class LevelCompletion : MonoBehaviour
@@ -18,8 +19,8 @@ public class LevelCompletion : MonoBehaviour
 	public GameObject TrashMan;
 	public RCC_Camera camera;
 	public LevelManager Levelmanager;
-	public GameObject StopPos;
-	public int stoppingpoints;
+	[HideInInspector] public GameObject StopPos;
+	[HideInInspector] public int stoppingpoints;
 	public GameObject TrashPickParticle;
 	public Transform DirectionalArrow, Targetofarrow;
 	[HideInInspector]
@@ -28,14 +29,20 @@ public class LevelCompletion : MonoBehaviour
 	public GameObject target;
 	[HideInInspector] public GameObject trashcans;
 
-	public int currentTargetIndex = 0;
-	public int maxHealth = 100;
-	public int currentHealth = 0;
-	public int collectgarbage = 0;
-	public Truckprop healthbar, collect;
-	private bool Iscompl;
+	[HideInInspector] public int currentTargetIndex = 0;
+	[HideInInspector] public int maxHealth = 100;
+	[HideInInspector] public int currentHealth = 0;
+	[HideInInspector] public int collectgarbage = 0;
+	 public Truckprop healthbar, collect;
+	 private bool Iscompl;
 	public Image img;
 	public GameObject timelineScene,rcccamera;
+
+
+	private RCC_CarControllerV3 rccController;
+	private float originalSpeed;
+	[HideInInspector]public bool isCleaning = false;
+	[SerializeField]public float cleaningSpeed = 5f;
 
 
 	private void Awake()
@@ -51,6 +58,13 @@ public class LevelCompletion : MonoBehaviour
 	}
 	private void Start()
     {
+		rccController = GetComponent<RCC_CarControllerV3>();
+
+		if (rccController == null)
+		{
+			Debug.LogError("RCC_CarControllerV3 not found on the GameObject!");
+		}
+		originalSpeed = rccController.speed;  // Set the original speed
 		currentHealth = maxHealth;
 		healthbar.SetMaxHealth(maxHealth);
 		Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
@@ -65,15 +79,15 @@ public class LevelCompletion : MonoBehaviour
 			if (Target1 != null)
 			{
 				Targetofarrow = Target1.transform;
-				Debug.Log("collectgarbage" + collectgarbage);
+				//Debug.Log("collectgarbage" + collectgarbage);
 				//currentTargetIndex++;
-				Debug.Log("currentTargetIndex" + currentTargetIndex);
+				//Debug.Log("currentTargetIndex" + currentTargetIndex);
 				
 				if (currentTargetIndex == 1)
 				{
 
-					Debug.Log("collectgarbage" + collectgarbage);
-					Debug.Log("currentTargetIndex" + currentTargetIndex);
+					//Debug.Log("collectgarbage" + collectgarbage);
+					//Debug.Log("currentTargetIndex" + currentTargetIndex);
 					Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
 					Targetofarrow = Target1.transform;
 				
@@ -85,9 +99,9 @@ public class LevelCompletion : MonoBehaviour
 				
 				Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
 				Targetofarrow = Target1.transform;
-				Debug.Log("collectgarbage" + collectgarbage);
+				//Debug.Log("collectgarbage" + collectgarbage);
 				//currentTargetIndex++;
-				Debug.Log("currentTargetIndex" + currentTargetIndex);
+				//Debug.Log("currentTargetIndex" + currentTargetIndex);
 			
 			}			
 		}
@@ -142,8 +156,60 @@ public class LevelCompletion : MonoBehaviour
 			timelineScene.SetActive(true);
 
 		}
+		if (other.tag == "Water Stop0")
+		{
+			Debug.Log("I am water truck and at Waterpoint0");
+			StartCoroutine(StartCleaning());
+		}
+
 	}
-		private IEnumerator TrashPickRoutine(GameObject trashStop)
+	private IEnumerator StartCleaning()
+	{
+		// Check if the truck controller is not null
+		if (rccController != null)
+		{
+			// Decrease the truck speed using DoTween
+			DOTween.To(() => rccController.speed, x => rccController.speed = x, cleaningSpeed, 1f).SetEase(Ease.OutQuad);
+
+			// Directly reference the child objects without using Find
+			Transform brush1 = this.transform.GetChild(0); // Assuming Brush1 is the first child
+			Transform brush2 = this.transform.GetChild(1); // Assuming Brush2 is the second child
+			Vector3 Roatation = new Vector3(0,90,0);
+
+			if (brush1 != null && brush2 != null)
+			{
+				Vector3 targetPosition = new Vector3(brush1.position.x, brush1.position.y - .5f, brush1.position.z);
+
+
+
+				// Use DoTween for smooth transitions
+				brush1.DOLocalRotate(Roatation, 1f, RotateMode.Fast).SetEase(Ease.Linear).SetLoops(-1, LoopType.Incremental);
+				brush2.DOLocalRotate(Roatation, 1f, RotateMode.Fast).SetEase(Ease.Linear).SetLoops(-1, LoopType.Incremental);
+
+
+
+				// Move the brushes to the target position
+				brush1.DOMoveY(targetPosition.y, 1f).SetEase(Ease.Linear);
+				brush2.DOMoveY(targetPosition.y, 1f).SetEase(Ease.Linear);
+
+				// Adjust duration and ease type as needed
+				yield return new WaitForSeconds(1f);  // Adjust this time based on your animation duration
+
+
+				// Cleaning process finished, you can reset brushes and restore speed if needed
+				DOTween.To(() => rccController.speed, x => rccController.speed = x, originalSpeed, 1f).SetEase(Ease.OutQuad);
+			}
+			else
+			{
+				Debug.LogError("Brush1 or Brush2 not found!");
+			}
+		}
+		else
+		{
+			Debug.LogError("RCC_CarControllerV3 not found!");
+		}
+	}
+	private IEnumerator TrashPickRoutine(GameObject trashStop)
 		{
 		 //PlayerController.instance.SplineMove.currentPoint = 0;
 			collectgarbage++;
@@ -187,8 +253,9 @@ public class LevelCompletion : MonoBehaviour
     {
 
 		trashcans.SetActive(false);
+
 		Debug.Log("I changed the direction");
-		PlayerController.instance.SplineMove.currentPoint = 1;
+		//PlayerController.instance.SplineMove.currentPoint = 1;
 		yield return new WaitForSeconds(5f);
 		this.GetComponent<Rigidbody>().isKinematic = false;
 		PickTrash.SetActive(false);
@@ -198,11 +265,12 @@ public class LevelCompletion : MonoBehaviour
 		TrashMan.transform.GetChild(0).gameObject.SetActive(false);
 		TrashMan.GetComponent<PlayerController>().DummyMonster.transform.GetChild(0).gameObject.SetActive(true);
 		TrashMan.GetComponent<PlayerController>().TrashCan.SetActive(false);
-		StopPos.SetActive(true);
-		PlayerController.instance.SplineMove.currentPoint = 1;
+		StopPos.SetActive(true); 
 		collect.GarbageFill(collectgarbage);
+		//PlayerController.instance.SplineMove.currentPoint = 1;
+
 		//PlayerController.instance.SplineMove.reverse = true;
-		PlayerController.instance.SplineMove.currentPoint = 1;
+		//PlayerController.instance.SplineMove.currentPoint = 1;
 		TrashPickParticle.SetActive(true);
         if ((currentTargetIndex == 3)) {
 			Targetofarrow = StopPos.gameObject.transform;

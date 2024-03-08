@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour
 			PlayerVehicles[i].SetActive(false);
 
 		//_selectedCarIndex = PlayerPrefs.GetInt("SelectedCar");
-		if (PlayerPrefs.GetInt("LevelNumber") < 3)
+		if (PlayerPrefs.GetInt("LevelNumber") <= 3)
 		{
 			_selectedCarIndex = 0;
 			_selectedCarCamerIndex = PlayerPrefs.GetInt("LevelNumber") - 1;
