@@ -22,14 +22,14 @@ public class CarSelection : MonoBehaviour
 	public Slider handlingSlider;
 
 	public GameObject _modeSelection;
-	public Material _dumperMaterial;
-	public Texture[] _dumperTruckTextures;
-	public Material _cargoMaterial;
-	public Texture[] _cargoTruckTextures;
-	public Material _garbageTruckMaterial;
-	public Texture[] _garbageTruckTextures;
-	public GameObject[] _vehicleColorPanels;
-	public GameObject _animatingHand;
+	//public Material _dumperMaterial;
+	/// Texture[] _dumperTruckTextures;
+	//public Material _cargoMaterial;
+	//public Texture[] _cargoTruckTextures;
+	//public Material _garbageTruckMaterial;
+	//public Texture[] _garbageTruckTextures;
+	//public GameObject[] _vehicleColorPanels;
+	//public GameObject _animatingHand;
 	public GameObject _mainMenuCanvas;
 	public GameObject _rotatingCamera;
 	public GameObject _leftButton;
@@ -50,7 +50,7 @@ public class CarSelection : MonoBehaviour
 
 	private int _current;
 	private int _prev;
-	private int[] _prices = { 0,10000, 12000};
+	private int[] _prices = { 0,100000};
 	private int _coinsCash;
 	private Transform[] _carsTranforms;
 
@@ -59,11 +59,11 @@ public class CarSelection : MonoBehaviour
 	{
 		//DEFAULT TEXTURES Handling 
 
-		_garbageTruckMaterial.mainTexture = _garbageTruckTextures [0];
-		_dumperMaterial.mainTexture = _dumperTruckTextures[0];
-		_cargoMaterial.mainTexture = _cargoTruckTextures [0];
+		//_garbageTruckMaterial.mainTexture = _garbageTruckTextures [0];
+		//_dumperMaterial.mainTexture = _dumperTruckTextures[0];
+		//_cargoMaterial.mainTexture = _cargoTruckTextures [0];
 
-		StartCoroutine (animateHand ());
+		//StartCoroutine (animateHand ());
 	
 		_rotatingCamera.SetActive(true);
 		Debug.Log ("-->> OnEnable Method of CarSelection is Called\n\n");
@@ -89,7 +89,7 @@ public class CarSelection : MonoBehaviour
 		_vehicles [0].SetActive (true);
 
 		// Activating first Vehicle color panel
-		_vehicleColorPanels [0].SetActive (true);
+		//_vehicleColorPanels [0].SetActive (true);
 
 		// we dont need to show price & buy of first car as its free for ride
 		_priceButton.gameObject.SetActive (false);
@@ -99,42 +99,41 @@ public class CarSelection : MonoBehaviour
 		_coins.text = " " + PlayerPrefs.GetInt("Coins");
 		//	_rotatingCamera.GetComponent<CameraMove> ().target = _vehicles [0].gameObject.transform;
 		// showing the detail of cars
-		Debug.Log (" Car Selection Rotating Camera Target:->>> " + _rotatingCamera.GetComponent<CameraMove> ().target );
-		Debug.Log ("CurrentCarIndex-->>: " + _current + " Price--->> 0");
-		Debug.Log ("Color Panel of " + _vehicleColorPanels [_current].gameObject.name  + " is activated ");
+		//Debug.Log (" Car Selection Rotating Camera Target:->>> " + _rotatingCamera.GetComponent<CameraMove> ().target );
+		//Debug.Log ("CurrentCarIndex-->>: " + _current + " Price--->> 0");
+		//Debug.Log ("Color Panel of " + _vehicleColorPanels [_current].gameObject.name  + " is activated ");
 	}
 
-    private void Update()
-    {
-		
-	}
+ 
     public void right()
     {
 
 		buttonClicked ();
-
-		if (_current < _vehicles.Length-1) 
+		   
+		if (_current < _vehicles.Length) 
 		{
 
 
-			_vehicles [_current].SetActive (false);
-			_vehicles [_current + 1].SetActive (true);
+			_vehicles [0].SetActive (false);
+			_vehicles [1].SetActive (true);
 
 			states();
 
-			_vehicleColorPanels [_current].SetActive (false);
-			_vehicleColorPanels [_current + 1].SetActive (true);
+			//_vehicleColorPanels [_current].SetActive (false);
+			//_vehicleColorPanels [_current + 1].SetActive (true);
 
 			
 			_current = _current+1;
-			if (_current>0) {
-				_leftButton.SetActive (true);
-				_rightButton.SetActive (true);
-			}
-			if (_current==_vehicles.Length-1) 
+			//if (_current>0) {
+			//	_leftButton.SetActive (true);
+			//	_rightButton.SetActive (true);
+				
+			//}
+			if (_current == 1) 
 				_rightButton.SetActive (false);
-			
-			if (PlayerPrefs.GetInt ("Car" + _current)>0) {
+				_leftButton.SetActive(true);
+
+			if (PlayerPrefs.GetInt ("Car" + _current)> 0 ) {
 				_priceButton.gameObject.SetActive (false);
 				_buy.SetActive (false);
 				_rewardbtn.SetActive (false);
@@ -142,39 +141,39 @@ public class CarSelection : MonoBehaviour
 			}else{
 				_priceButton.gameObject.SetActive (true);
 				_priceButton.transform.GetChild(0).GetComponent<Text>().text= _prices [_current].ToString ();
-				_select.SetActive (false);
-				_buy.SetActive (true);
 				_rewardbtn.SetActive (true);
+				_buy.SetActive (true);
+				_select.SetActive (false);
 			}
 				
 		}
 		_coins.text = " " + PlayerPrefs.GetInt("Coins");
-		Debug.Log ("CurrentCarIndex-->>: " + _current + " Price--->> "+_prices[_current]);
-		Debug.Log ("Color Panel of " + _vehicleColorPanels [_current].gameObject.name  + " is activated ");
+		//Debug.Log ("CurrentCarIndex-->>: " + _current + " Price--->> "+_prices[_current]);
+		//Debug.Log ("Color Panel of " + _vehicleColorPanels [_current].gameObject.name  + " is activated ");
 	}
 	public void left()
 	{
 		buttonClicked ();
 
-		if (_current>=1) {
+		if ( _current == 1 ) {
 
 
-			_vehicles [_current].SetActive (false);
-			_vehicles [_current - 1].SetActive (true);
+			_vehicles [1].SetActive (false);
+			_vehicles [0].SetActive (true);
 
 			states();
 
-			_vehicleColorPanels[_current].SetActive(false);
-			_vehicleColorPanels [_current - 1].SetActive (true);
+			//_vehicleColorPanels[_current].SetActive(false);
+			//_vehicleColorPanels [_current - 1].SetActive (true);
 
 			_current = _current-1;
 
-			if (_current>0) {
-				_leftButton.SetActive (true);
+			if (_current == 0) {
+				_leftButton.SetActive (false);
 				_rightButton.SetActive (true);
 			}
-			if (_current== 0) 
-				_leftButton.SetActive (false);
+			//if (_current== 0) 
+			//	_leftButton.SetActive (false);
 
 			if (PlayerPrefs.GetInt ("Car" + _current)>0) {
 				_priceButton.gameObject.SetActive (false);
@@ -208,7 +207,11 @@ public class CarSelection : MonoBehaviour
 		_coins.text = " " + PlayerPrefs.GetInt("Coins");
 
 	}
-	public void buy()
+    private void Update()
+    {
+		Debug.Log("Current Car"+_current);
+    }
+    public void buy()
 	{
 		_coinsCash = PlayerPrefs.GetInt("Coins");
 		// if total coin cash is greater than or eqaul to current car price 
@@ -290,37 +293,37 @@ public class CarSelection : MonoBehaviour
 		this.gameObject.GetComponent<AudioSource> ().Play ();
 	}
 		
-	public void TrashTruckColorChange(int index)
-    {
-		buttonClicked ();
-		if (_current == 2)
-			_garbageTruckMaterial.mainTexture = _garbageTruckTextures [index];
+	//public void TrashTruckColorChange(int index)
+ //   {
+	//	buttonClicked ();
+	//	if (_current == 2)
+	//		_garbageTruckMaterial.mainTexture = _garbageTruckTextures [index];
 
-	}
+	//}
 
-	public void DumperColorChange(int index)
-    {
-		buttonClicked ();
-		if (_current == 0)
-			_dumperMaterial.mainTexture = _dumperTruckTextures[index];
+	//public void DumperColorChange(int index)
+ //   {
+	//	buttonClicked ();
+	//	if (_current == 0)
+	//		_dumperMaterial.mainTexture = _dumperTruckTextures[index];
 		
-	}
+	//}
 
-	public void CargoTruckColorChange(int index)
-    {
-		buttonClicked ();
-		if (_current == 1)
-			_cargoMaterial.mainTexture = _cargoTruckTextures[index];
-	}
-
-
+	//public void CargoTruckColorChange(int index)
+ //   {
+	//	buttonClicked ();
+	//	if (_current == 1)
+	//		_cargoMaterial.mainTexture = _cargoTruckTextures[index];
+	//}
 
 
-	IEnumerator animateHand()
-	{
-		yield return new WaitForSeconds (1.2f);
-		_animatingHand.SetActive (false);
-	}
+
+
+	//IEnumerator animateHand()
+	//{
+	//	yield return new WaitForSeconds (1.2f);
+	//	_animatingHand.SetActive (false);
+	//}
 
 }
 

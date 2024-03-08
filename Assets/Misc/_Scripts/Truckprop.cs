@@ -24,7 +24,7 @@ public class Truckprop : MonoBehaviour
     {
 
         Collectionfill.DOValue(collect, 2f);
-        Debug.Log("Collect" +collect);
+      
     }
 
 }

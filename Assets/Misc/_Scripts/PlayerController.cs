@@ -13,17 +13,27 @@ public class PlayerController : MonoBehaviour
     public bool ReverseSpline;
     public string[] AnimationStateName;
     public int TestSpline, AnimationState;
-    private splineMove SplineMove;
+    public splineMove SplineMove;
     public GameObject TrashCan;
     public LevelCompletion LevelCompletionS;
-    public static int counter;
+    //public static int counter;
     public GameObject DummyMonster;
     public GameObject Drop;
-    public Button button1;
-    public Button button2;
-    public Button button3;
+    //public Button button1;
+    //public Button button2;
+    public GameObject button1;
+    public bool StartAnim;
+   
 
+    public static PlayerController instance;
 
+    public void Awake()
+    {
+       if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         Player = this.GetComponent<Animator>();
@@ -42,57 +52,72 @@ public class PlayerController : MonoBehaviour
         SplineMove.StartMove();
         StartAnim = true;
     }
-
     public void PickTrash(int Type)
     {
-        counter++;
+        //counter++;
         SplineMove.StartMove();
         SplineMove.pathContainer = Paths[Type];
+        StartAnim = true;
         Animationplay(AnimationStateName[4]);
-        if (SplineMove.reverse == false)
+        if(SplineMove.reverse == false)
         {
-            Debug.LogError("forward");
+            //Debug.LogError("forward");
             this.transform.GetChild(0).gameObject.SetActive(true);
-            DummyMonster.transform.GetChild(0).gameObject.SetActive(false);
+           // DummyMonster.transform.GetChild(0).gameObject.SetActive(false);
+            DummyMonster.SetActive(false);
             SplineMove.reverse = true;
             TrashCan.SetActive(false);
-
         }
         else
         {
-            Debug.LogError("back");
+            StartCoroutine(LevelCompletionS.Complete());
+            //Debug.LogError("back");
             SplineMove.reverse = false;
             TrashCan.SetActive(true);
-            StartCoroutine(LevelCompletionS.Complete());
-
-
+            
         }
     }
-    public bool StartAnim;
+    
     void Update()
     {
-
+        
         if (play)
         {
             Animationplay(AnimationStateName[AnimationState]);
             PlaySpline(TestSpline);
             play = false;
         }
+        
         if (StartAnim)
         {
-            if (SplineMove.currentPoint > 6)
+            Debug.Log("CurrentSplineMove: " + SplineMove.currentPoint);
+            Debug.Log("AnimationStateName: " + AnimationStateName[SplineMove.currentPoint]);
+            if (SplineMove.currentPoint == 6 )
             {
-                Animationplay(AnimationStateName[0]);
-
+                button1.SetActive(true);
                 TrashCan.SetActive(false);
+                Animationplay(AnimationStateName[0]);
             }
-            else if (SplineMove.currentPoint <= 1)
+            if (SplineMove.currentPoint == 6 && AnimationName == AnimationStateName[1])
+            {   
+                button1.SetActive(false);             
+               
+            }
+            
+            else if (SplineMove.currentPoint == 0)
             {
                 Animationplay(AnimationStateName[0]);
+                button1.SetActive(true);
+                
+            }
+            else if(SplineMove.currentPoint > 0 && SplineMove.currentPoint < 6)
+            {
+                Animationplay(AnimationStateName[4]);
+              button1.SetActive(false);
             }
             else
             {
-                Animationplay(AnimationStateName[4]);
+                //button1.SetActive(false);
             }
         }
 
@@ -101,44 +126,33 @@ public class PlayerController : MonoBehaviour
             Drop = GameObject.FindGameObjectWithTag("drop");
         }
     }
-    public void OnPointerClick()
-    {
-        StartCoroutine(EnableButtonAfterDelay(8f));
+    //public void OnPointerClick()
+    //{
+    //    StartCoroutine(EnableButtonAfterDelay(3f));
 
-    }
+    //}
 
-    private IEnumerator EnableButtonAfterDelay(float delay)
-    {
-        if (button1.interactable || button2.interactable || button3.interactable)
-        {
-            button1.interactable = false;
-            button2.interactable = false;
-            button3.interactable = false;
-            yield return new WaitForSeconds(delay);
-            button1.interactable = true;
-            button2.interactable = true;
-            button3.interactable = true;
+    //private IEnumerator EnableButtonAfterDelay(float delay)
+    //{
+    //    if (button1.interactable)
+    //    {
+    //        button1.interactable = false;
 
-        }
-
-        else if(!button1.interactable || !button2.interactable || !button3.interactable)
-        {
-            button1.interactable = true;
-            button2.interactable = true;
-            button3.interactable = true;
-            yield return new WaitForSeconds(delay);
-            button1.interactable = false;
-            button2.interactable = false;
-            button3.interactable = false;
-
-        }
+    //        yield return new WaitForSeconds(delay);
+    //        button1.interactable = true;
 
 
+    //    }
+
+    //    else if(!button1.interactable)
+    //    {
+    //        button1.interactable = true;
+
+    //        yield return new WaitForSeconds(delay);
+    //        button1.interactable = false;
 
 
-
-
-    }
+    //    } }
 
 
 }

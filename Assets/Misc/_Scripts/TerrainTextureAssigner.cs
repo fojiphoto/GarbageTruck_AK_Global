@@ -64,7 +64,8 @@ public class TerrainTextureAssigner : MonoBehaviour {
 		//Mode3 ();
 	}
 
-	public void Mode1()
+    [System.Obsolete]
+    public void Mode1()
 	{
 		//ROAD
 		easyRoadMaterial.mainTexture = asphaltRoadTexture;
@@ -104,38 +105,49 @@ public class TerrainTextureAssigner : MonoBehaviour {
 		treeMaterial.SetColor("_TintColor", new Color32(255,240,176,116));   // adjusting tint color of gree tree texture
 
 
-		// HANDLING TEXTURES
-		SplatPrototype[] tex = new SplatPrototype [TerrainTexturesMode1.Length];
-		for (int i = 0; i < TerrainTexturesMode1.Length; i++) 
-		{
-			tex [i] = new SplatPrototype ();
-			tex [i].texture = TerrainTexturesMode1 [i];    //Sets the texture
+		
+		StartCoroutine(DelayedMode1());
+		
 
-			if (i == 0) {
-				tex [i].tileSize = new Vector2 (10, 10);    //Sets the size of the Ground 9texture
+	}
+	IEnumerator DelayedMode1()
+	{
+		yield return null; // Wait for the end of the frame
+						   // Handling Terrain Textures
+						   // HANDLING TEXTURES
+		SplatPrototype[] tex = new SplatPrototype[TerrainTexturesMode1.Length];
+		for (int i = 0; i < TerrainTexturesMode1.Length; i++)
+		{
+			tex[i] = new SplatPrototype();
+			tex[i].texture = TerrainTexturesMode1[i];    //Sets the texture
+
+			if (i == 0)
+			{
+				tex[i].tileSize = new Vector2(10, 10);    //Sets the size of the Ground 9texture
 			}
-			if (i == 1) {
-				tex [i].tileSize = new Vector2 (5, 5);    //Sets the size of the Ground 7 texture
+			if (i == 1)
+			{
+				tex[i].tileSize = new Vector2(5, 5);    //Sets the size of the Ground 7 texture
 			}
-			if (i == 2) {
-				tex [i].tileSize = new Vector2 (10, 5);    //Sets the size of the Ground 4 texture
+			if (i == 2)
+			{
+				tex[i].tileSize = new Vector2(10, 5);    //Sets the size of the Ground 4 texture
 			}
-			if (i == 3) {
-				tex [i].tileSize = new Vector2 (10, 10);    //Sets the size of the Dirt 05 Seamless texture
+			if (i == 3)
+			{
+				tex[i].tileSize = new Vector2(10, 10);    //Sets the size of the Dirt 05 Seamless texture
 			}
-			if (i==4) {
-				tex [i].tileSize = new Vector2 (10, 10);    //Sets the size of the WATER texture    
+			if (i == 4)
+			{
+				tex[i].tileSize = new Vector2(10, 10);    //Sets the size of the WATER texture    
 			}
 		}
-	
 		terraindata.splatPrototypes = tex;
 		terraindata2.splatPrototypes = tex;
 		//terrain = Terrain.CreateTerrainGameObject (terraindata).GetComponent<Terrain> ();
 
 		//this.gameObject.GetComponent<TerrainTextureAssigner> ().enabled = false;
-
 	}
-
 	public void Mode2()  // SNOW MODE
 	{
 		// DIRECTIONAL lIGHT

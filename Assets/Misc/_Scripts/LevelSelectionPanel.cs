@@ -67,7 +67,8 @@ public class LevelSelectionPanel : MonoBehaviour
 		
 		PlayerPrefs.SetInt("mode",mode);
 		
-		if (mode == 1) {
+		if (mode == 1) 
+		{
 			//AbdulRehman
 			//AdsManager.instance.isAdShowing = true; 
 			//AdsManager.instance?.ShowInterstitialWithoutConditions("showing ad");

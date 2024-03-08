@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-
+	public static LevelManager instance;
 	public GameObject _controlButtons;
 	public GameObject _levelPausePanel;
 	public GameObject _levelCompletePanel;
 	public GameObject _levelFailPanel;
 	public GameObject _timmer;
-	public GameObject _instructionPanel;
-	public GameObject _controlpanel;
+	//public GameObject _instructionPanel;
+	//public GameObject _controlpanel;
 	public GameObject _bgMusic;
 	public GameObject _rccCanvas;
 	public GameObject _carCamera;
@@ -29,25 +30,25 @@ public class LevelManager : MonoBehaviour
 	private int _selectedCarCamerIndex;
 	private int _selectedLevelIndex;
 	public CameraFilterPack_3D_Snow Snow;
+	
+	//public void closeInstructionPanel()
+	//{
+	//	_instructionPanel.SetActive(false);
+	//	_controlpanel.SetActive(true);
+	//}
 
-	public void closeInstructionPanel()
-	{
-		_instructionPanel.SetActive(false);
-		_controlpanel.SetActive(true);
-	}
+	//public void closeControlPanel()
+	//{
+	//	_controlpanel.SetActive(false);
+	//	_rccCanvas.SetActive(true);
 
-	public void closeControlPanel()
-	{
-		_controlpanel.SetActive(false);
-		_rccCanvas.SetActive(true);
-
-	}
+	//}
 
 
 
 	void Start()
 	{
-
+		instance = this;
 		try
 		{
 			FirebaseInitialize.instance.LogEvent1("User started level"+ PlayerPrefs.GetInt("LevelNumber"));
@@ -65,14 +66,14 @@ public class LevelManager : MonoBehaviour
 		}
 	*/
 	Time.timeScale = 1;
-		AudioListener.volume = 1;
+	AudioListener.volume = 1;
 
-		Debug.Log("LevelManager OnEnable Called...!!");
+		//Debug.Log("LevelManager OnEnable Called...!!");
 
-		_timmer.gameObject.SetActive(true);
+	_timmer.gameObject.SetActive(true);
 
 
-		Debug.Log("Curent Level Selected:--->> " + PlayerPrefs.GetInt("LevelNumber"));
+		//Debug.Log("Curent Level Selected:--->> " + PlayerPrefs.GetInt("LevelNumber"));
 
 		for (int i = 0; i < _levels.Length; i++)
 			_levels[i].SetActive(false);
@@ -80,32 +81,58 @@ public class LevelManager : MonoBehaviour
 		for (int i = 0; i < PlayerVehicles.Length; i++)
 			PlayerVehicles[i].SetActive(false);
 
-		_selectedCarIndex = PlayerPrefs.GetInt("SelectedCar");
-		_selectedCarCamerIndex = PlayerPrefs.GetInt("LevelNumber") - 1;
-		_selectedLevelIndex = _selectedCarCamerIndex;
-		_carCamera.SetActive(true);
+		//_selectedCarIndex = PlayerPrefs.GetInt("SelectedCar");
+		if (PlayerPrefs.GetInt("LevelNumber") < 3)
+		{
+			_selectedCarIndex = 0;
+			_selectedCarCamerIndex = PlayerPrefs.GetInt("LevelNumber") - 1;
+			_selectedLevelIndex = _selectedCarCamerIndex;
+			_carCamera.SetActive(true);
 
-		Debug.Log("Level Manager Selected Car Index: " + _selectedCarIndex);
+			//Debug.Log("Level Manager Selected Car Index: " + _selectedCarIndex);
+			PlayerVehicles[_selectedCarIndex].SetActive(true);
 
+			_carCamera.gameObject.GetComponent<RCC_Camera>().SetPlayerCar(PlayerVehicles[_selectedCarIndex]);
 
-		PlayerVehicles[_selectedCarIndex].SetActive(true);
+			_carCamera.transform.position = CamerPositions[_selectedLevelIndex].position;
+			_carCamera.transform.rotation = CamerPositions[_selectedLevelIndex].rotation;
 
-		_carCamera.gameObject.GetComponent<RCC_Camera>().SetPlayerCar(PlayerVehicles[_selectedCarIndex]);
+			PlayerVehicles[_selectedCarIndex].GetComponent<RCC_CarControllerV3>().StartEngine();
+			PlayerVehicles[_selectedCarIndex].transform.position = PlayerPositions[_selectedLevelIndex].position;
+			PlayerVehicles[_selectedCarIndex].transform.rotation = PlayerPositions[_selectedLevelIndex].rotation;
+			_levels[_selectedLevelIndex].SetActive(true);
 
-		_carCamera.transform.position = CamerPositions[_selectedLevelIndex].position;
-		_carCamera.transform.rotation = CamerPositions[_selectedLevelIndex].rotation;
+			// Handling props for vehicles
+			_levels[_selectedLevelIndex].gameObject.transform.GetChild(_selectedCarIndex).gameObject.SetActive(true);
+			//Debug.Log("LETS CHECK------>>>: " + _levels[_selectedCarIndex].gameObject.transform.GetChild(_selectedCarIndex).gameObject.name);
+		}
+		else if(PlayerPrefs.GetInt("LevelNumber") > 3)
+        {
+			_selectedCarIndex = 1;
+			_selectedCarCamerIndex = PlayerPrefs.GetInt("LevelNumber") - 1;
+			_selectedLevelIndex = _selectedCarCamerIndex;
+			_carCamera.SetActive(true);
 
-		PlayerVehicles[_selectedCarIndex].GetComponent<RCC_CarControllerV3>().StartEngine();
-		PlayerVehicles[_selectedCarIndex].transform.position = PlayerPositions[_selectedLevelIndex].position;
-		PlayerVehicles[_selectedCarIndex].transform.rotation = PlayerPositions[_selectedLevelIndex].rotation;
-		_levels[_selectedLevelIndex].SetActive(true);
+			//Debug.Log("Level Manager Selected Car Index: " + _selectedCarIndex);
+			PlayerVehicles[_selectedCarIndex].SetActive(true);
 
-		// Handling props for vehicles
+			_carCamera.gameObject.GetComponent<RCC_Camera>().SetPlayerCar(PlayerVehicles[_selectedCarIndex]);
 
-		_levels[_selectedLevelIndex].gameObject.transform.GetChild(_selectedCarIndex).gameObject.SetActive(true);
-		Debug.Log("LETS CHECK------>>>: " + _levels[_selectedCarIndex].gameObject.transform.GetChild(_selectedCarIndex).gameObject.name);
+			_carCamera.transform.position = CamerPositions[_selectedLevelIndex].position;
+			_carCamera.transform.rotation = CamerPositions[_selectedLevelIndex].rotation;
+
+			PlayerVehicles[_selectedCarIndex].GetComponent<RCC_CarControllerV3>().StartEngine();
+			PlayerVehicles[_selectedCarIndex].transform.position = PlayerPositions[_selectedLevelIndex].position;
+			PlayerVehicles[_selectedCarIndex].transform.rotation = PlayerPositions[_selectedLevelIndex].rotation;
+			_levels[_selectedLevelIndex].SetActive(true);
+
+			// Handling props for vehicles
+			_levels[_selectedLevelIndex].gameObject.transform.GetChild(_selectedCarIndex).gameObject.SetActive(true);
+		}
+	   
 		
-		Debug.Log("LevelCheckkkkkkkkkkkk"+ PlayerPrefs.GetInt("LevelNumber"));
+		
+		
 		if (PlayerPrefs.GetInt("LevelNumber") < 10)
 		{
 			RenderSettings.skybox = weather[0];
@@ -120,12 +147,7 @@ public class LevelManager : MonoBehaviour
 
 			RenderSettings.skybox = weather[2];
 		}
-
-
-
-
-
-	}
+}
 
 	public void Pause()
 	{   //AbdulRehman
@@ -133,9 +155,7 @@ public class LevelManager : MonoBehaviour
 		//AdsManager.instance?.ShowInterstitialWithoutConditions("showing ad");
 		CASAds.instance.ShowInterstitial();
 
-		Invoke("Function_to_enable_appopen", 3f);
-		
-
+		//Invoke("Function_to_enable_appopen", 3f);
 		Time.timeScale = 0f;
 		AudioListener.volume = 0;
 		_controlButtons.SetActive(false);
@@ -167,7 +187,6 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1;
 		AudioListener.volume = 1;
 		n = 1;
-		//Here i need to write a code
 		AdsPannel.SetActive(true);
 		
 	}
@@ -217,5 +236,7 @@ public class LevelManager : MonoBehaviour
 		//AdsManager.instance.isAdShowing = false;
 		
 	}
+	
+	
 
 }

@@ -5,62 +5,62 @@ using UnityEditor;
 
 public class LevelCompletion : MonoBehaviour
 {
+	public static LevelCompletion instance;
 
-
-    public GameObject _levelCompletePanel;
+	public GameObject _levelCompletePanel;
+	public GameObject _levelFailPanel;
 	public GameObject PickTrash;
 	public GameObject playermaincanvas;
-	public GameObject _levelFailPanel;
+	public GameObject CollectCanvas;
 	public GameObject _barCompletion;
 	public GameObject _controllerButtons;
-    //public static bool Ads = true;
+	//public static bool Ads = true;
 	public GameObject TrashMan;
- 	public RCC_Camera camera;
+	public RCC_Camera camera;
 	public LevelManager Levelmanager;
 	public GameObject StopPos;
 	public int stoppingpoints;
 	public GameObject TrashPickParticle;
-	public Transform DirectionalArrow,Targetofarrow;
+	public Transform DirectionalArrow, Targetofarrow;
 	[HideInInspector]
-	public GameObject  Target1 ;
+	public GameObject Target1;
 	[HideInInspector]
-	public bool firsttarget = false;
-	public bool Secondtarget = false;
-	public bool Thirdtarget = false;
+	public GameObject target;
+	[HideInInspector] public GameObject trashcans;
 
-	public int currentTargetIndex=0;
+	public int currentTargetIndex = 0;
 	public int maxHealth = 100;
 	public int currentHealth = 0;
 	public int collectgarbage = 0;
-	public Truckprop healthbar,collect;
+	public Truckprop healthbar, collect;
 	private bool Iscompl;
-    private void Awake()
+	public Image img;
+	public GameObject timelineScene,rcccamera;
+
+
+	private void Awake()
     {
+		if(instance == null)
+        {
+			instance = this;
+        }
 		camera = GameObject.FindObjectOfType<RCC_Camera>();
-		Debug.Log(PlayerPrefs.GetInt("LevelNumber"));
-		StopPos = GameObject.FindGameObjectWithTag("drop");
+		StopPos = GameObject.FindGameObjectWithTag("drop");	
 		stoppingpoints = Levelmanager.TrashPointsByLevel[PlayerPrefs.GetInt("LevelNumber")];
-		Debug.Log("stoppingpoints"+stoppingpoints);
 		Iscompl = true;
 	}
-
-	
-    private void Start()
+	private void Start()
     {
-		
 		currentHealth = maxHealth;
 		healthbar.SetMaxHealth(maxHealth);
 		Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
-		Targetofarrow = Target1.transform;
-		
-
+		Targetofarrow = Target1.transform;	
 	}
-    
-    public void TargetToFollow()
+	public void TargetToFollow()
 	{
 		if (currentTargetIndex < 4)
 		{
-			Debug.Log("currentTargetIndexATTOP" + currentTargetIndex);
+			//Debug.Log("currentTargetIndexATTOP" + currentTargetIndex);
 			Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
 			if (Target1 != null)
 			{
@@ -71,35 +71,37 @@ public class LevelCompletion : MonoBehaviour
 				
 				if (currentTargetIndex == 1)
 				{
+
+					Debug.Log("collectgarbage" + collectgarbage);
+					Debug.Log("currentTargetIndex" + currentTargetIndex);
 					Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
 					Targetofarrow = Target1.transform;
-					Debug.Log("collectgarbage" + collectgarbage);
-					//currentTargetIndex++;
-					Debug.Log("currentTargetIndex" + currentTargetIndex);
+				
 				}
 				
 			}
 			if (currentTargetIndex == 2)
 			{
+				
 				Target1 = GameObject.FindGameObjectWithTag("Trash Stop" + currentTargetIndex);
 				Targetofarrow = Target1.transform;
 				Debug.Log("collectgarbage" + collectgarbage);
 				//currentTargetIndex++;
 				Debug.Log("currentTargetIndex" + currentTargetIndex);
-			}
 			
+			}			
+		}
+	}
+	void HealthDemage(int demage)
+    {
+		if (currentHealth == 0) {
+			_levelFailPanel.SetActive(true);
 		}
 		else
 		{
-			// All targets reached or no targets found
-			// You may want to handle this situation accordingly
+			currentHealth -= demage;
+			healthbar.SetHealth(currentHealth);
 		}
-
-	}
-	void HealthDemage(int demage)
-    {	
-		currentHealth -= demage;
-		healthbar.SetHealth(currentHealth);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -109,82 +111,85 @@ public class LevelCompletion : MonoBehaviour
 			HealthDemage(10);
         }
     }
-
     private void Update()
     {
-	
-
 		if (StopPos==null)
         {
 			StopPos = GameObject.FindGameObjectWithTag("drop");
-		}
+		}		
     }
     private void FixedUpdate()
     {
 		DirectionalArrow.transform.LookAt(Targetofarrow.transform);
     }
-
-    public GameObject trashcans;
-	//private void OnTriggerEnter(Collider other)
-	//{
-	//	for (int i = 0; i <= 3; i++)
-	//	{
-	//		if (other.tag == "Trash Stop" || other.tag == ("Trash Stop"+i))
-	//		{
-	//			collectgarbage++;
-	//			collect.GarbageFill(collectgarbage);
-	//			other.gameObject.GetComponent<Collider>().enabled = false;
-	//			this.GetComponent<Rigidbody>().isKinematic = true;
-	//			PickTrash.SetActive(true);
-	//			playermaincanvas.SetActive(false);
-	//			camera.TPSMinimumFOV = 85;
-	//			//stoppingpoints = stoppingpoints - 1;
-	//			trashcans = other.gameObject;
-
-	//		}
-
-			private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider other)
+	{
+		if (currentTargetIndex < 3)
+		{
+			if (other.tag == "Trash Stop" || other.tag == ("Trash Stop" + currentTargetIndex))
 			{
-				if(currentTargetIndex < 3)
-				{
-					if (other.tag == "Trash Stop" || other.tag == ("Trash Stop" + currentTargetIndex))
-					{
-
-						collectgarbage++;
-						collect.GarbageFill(collectgarbage);
-						other.gameObject.GetComponent<Collider>().enabled = false;
-						this.GetComponent<Rigidbody>().isKinematic = true;
-						PickTrash.SetActive(true);
-						playermaincanvas.SetActive(false);
-						camera.TPSMinimumFOV = 85;
-				currentTargetIndex++;
-				TargetToFollow();
-						
-				trashcans = other.gameObject;
-						
-					}
-					 
-			if ((currentTargetIndex == 3))
-            {
-				GameObject.FindGameObjectWithTag("drop").SetActive(true);
-				Targetofarrow = StopPos.gameObject.transform;
+				StartCoroutine(TrashPickRoutine(other.gameObject));
+				currentTargetIndex++;				
 			}
-            else
-			{
-				GameObject.FindGameObjectWithTag("drop").SetActive(false);
+		}
+		if (other.gameObject.tag ==  "drop")
+		{
+			playermaincanvas.SetActive(false);
+			CollectCanvas.SetActive(false);
+			PickTrash.SetActive(false);
+			this.GetComponent<Rigidbody>().isKinematic = true;	
+			rcccamera.SetActive(false);
+			timelineScene.SetActive(true);
 
-			} 
+		}
+	}
+		private IEnumerator TrashPickRoutine(GameObject trashStop)
+		{
+		 //PlayerController.instance.SplineMove.currentPoint = 0;
+			collectgarbage++;
+			trashStop.gameObject.GetComponent<Collider>().enabled = false;
+			this.GetComponent<Rigidbody>().isKinematic = true;
+			PickTrash.SetActive(true);
+			playermaincanvas.SetActive(false);
+			camera.TPSMinimumFOV = 85;
 
-			if (other.tag == "Reset")
+			trashcans = trashStop.gameObject;
+		
+			yield return FadeInOut(1f, .2f);
+			
+			this.transform.position = new Vector3(trashStop.transform.position.x, trashStop.transform.position.y + 3.25f, trashStop.transform.position.z);
+		this.transform.rotation = Quaternion.Euler(0f, 90f, 0f) * trashStop.transform.rotation;
+		//this.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+		yield return FadeInOut(0f, .2f);
+			TargetToFollow();
+
+			GameObject dropObject = GameObject.FindGameObjectWithTag("drop");
+        //dropObject.SetActive(true);
+        //Targetofarrow = StopPos.gameObject.transform;
+        if (dropObject != null)
+        {
+            if (currentTargetIndex == 3)
+            {
+                dropObject.SetActive(true);
+                Targetofarrow = StopPos.gameObject.transform;
+            }
+
+        }
+
+        if (trashStop.tag == "Reset")
 			{
 				this.transform.position = Levelmanager.PlayerPositions[PlayerPrefs.GetInt("LevelNumber") - 1].transform.position;
 				this.transform.rotation = Levelmanager.PlayerPositions[PlayerPrefs.GetInt("LevelNumber") - 1].transform.rotation;
 			}
 		}
-	}
+	
 	public IEnumerator Complete()
     {
-		yield return new WaitForSeconds(10f);
+
+		trashcans.SetActive(false);
+		Debug.Log("I changed the direction");
+		PlayerController.instance.SplineMove.currentPoint = 1;
+		yield return new WaitForSeconds(5f);
 		this.GetComponent<Rigidbody>().isKinematic = false;
 		PickTrash.SetActive(false);
 		playermaincanvas.SetActive(true);
@@ -194,177 +199,173 @@ public class LevelCompletion : MonoBehaviour
 		TrashMan.GetComponent<PlayerController>().DummyMonster.transform.GetChild(0).gameObject.SetActive(true);
 		TrashMan.GetComponent<PlayerController>().TrashCan.SetActive(false);
 		StopPos.SetActive(true);
-		trashcans.SetActive(false);
+		PlayerController.instance.SplineMove.currentPoint = 1;
+		collect.GarbageFill(collectgarbage);
+		//PlayerController.instance.SplineMove.reverse = true;
+		PlayerController.instance.SplineMove.currentPoint = 1;
 		TrashPickParticle.SetActive(true);
         if ((currentTargetIndex == 3)) {
 			Targetofarrow = StopPos.gameObject.transform;
 			GameObject.FindGameObjectWithTag("drop").SetActive(true);
 			 }
-        else
-        {
-			GameObject.FindGameObjectWithTag("drop").SetActive(false);
+  //      else
+  //      {
+		//	GameObject.FindGameObjectWithTag("drop").SetActive(false);
 
-		}
+		//}
 		
 		PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1000);
 	}
 
     void OnTriggerStay(Collider col)
 	{
+			//this.GetComponent<Rigidbody>().drag = 5;
+			//if (!_barCompletion.gameObject.activeSelf) 
+			//{
+			//	_barCompletion.gameObject.SetActive (true);
+			//}
+			//if (_barCompletion.transform.GetChild(0).GetComponent<Image>().fillAmount < 1)
+			//{
 
-		if (col.gameObject.tag == "drop") 
-		{
+			//	_barCompletion.transform.GetChild(0).GetComponent<Image>().fillAmount += 0.008f;
 
-			this.GetComponent<Rigidbody>().drag = 5;
-			if (!_barCompletion.gameObject.activeSelf) 
-			{
-				_barCompletion.gameObject.SetActive (true);
-			}
-
-
-			if (_barCompletion.transform.GetChild(0).GetComponent<Image>().fillAmount < 1)
-			{
-
-				_barCompletion.transform.GetChild(0).GetComponent<Image>().fillAmount += 0.008f;
-
-			}
-			else
-			{
-				int _levelcompleted = PlayerPrefs.GetInt("LevelCompleted");
-				_levelCompletePanel.SetActive(true);
-				int a = PlayerPrefs.GetInt("LevelNumber");
-				Debug.Log("a = " + PlayerPrefs.GetInt("LevelNumber"));
-                //PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
-                if (Iscompl)
-                {
-					PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
-					Iscompl = false;
-				}
-				_controllerButtons.SetActive(false);
-				if (a == 1)
-				{
-					PlayerPrefs.SetInt("Unlock", 1);
-				}
-				if (a == 2)
-				{
-					PlayerPrefs.SetInt("Unlock", 2);
-				}
-				if (a == 3)
-				{
-					PlayerPrefs.SetInt("Unlock", 3);
-				}
-				if (a == 4)
-				{
-					PlayerPrefs.SetInt("Unlock", 4);
-				}
-				if (a == 5)
-				{
-					PlayerPrefs.SetInt("Unlock", 5);
-				}
-				if (a == 6)
-				{
-					PlayerPrefs.SetInt("Unlock", 6);
-				}
-				if (a == 7)
-				{
-					PlayerPrefs.SetInt("Unlock", 7);
-				}
-				if (a == 8)
-				{
-					PlayerPrefs.SetInt("Unlock", 8);
-				}
-				if (a == 9)
-				{
-					PlayerPrefs.SetInt("Unlock", 9);
-				}
-				if (a == 10)
-				{
-					PlayerPrefs.SetInt("Unlock", 10);
-				}
-				if (a == 11)
-				{
-					PlayerPrefs.SetInt("Unlock1", 1);
-				}
-				if (a == 12)
-				{
-					PlayerPrefs.SetInt("Unlock1", 2);
-				}
-				if (a == 13)
-				{
-					PlayerPrefs.SetInt("Unlock1", 3);
-				}
-				if (a == 14)
-				{
-					PlayerPrefs.SetInt("Unlock1", 4);
-				}
-				if (a == 15)
-				{
-					PlayerPrefs.SetInt("Unlock1", 5);
-				}
-				if (a == 16)
-				{
-					PlayerPrefs.SetInt("Unlock1", 6);
-				}
-				if (a == 17)
-				{
-					PlayerPrefs.SetInt("Unlock1", 7);
-				}
-				if (a == 18)
-				{
-					PlayerPrefs.SetInt("Unlock1", 8);
-				}
-				if (a == 19)
-				{
-					PlayerPrefs.SetInt("Unlock1", 9);
-				}
-				if (a == 20)
-				{
-					PlayerPrefs.SetInt("Unlock1", 10);
-				}
-				if (a == 21)
-				{
-					PlayerPrefs.SetInt("Unlock2", 1);
-				}
-				if (a == 22)
-				{
-					PlayerPrefs.SetInt("Unlock2", 2);
-				}
-				if (a == 23)
-				{
-					PlayerPrefs.SetInt("Unlock2", 3);
-				}
-				if (a == 24)
-				{
-					PlayerPrefs.SetInt("Unlock2", 4);
-				}
-				if (a == 25)
-				{
-					PlayerPrefs.SetInt("Unlock2", 5);
-				}
-				if (a == 26)
-				{
-					PlayerPrefs.SetInt("Unlock2", 6);
-				}
-				if (a == 27)
-				{
-					PlayerPrefs.SetInt("Unlock2", 7);
-				}
-				if (a == 28)
-				{
-					PlayerPrefs.SetInt("Unlock2", 8);
-				}
-				if (a == 29)
-				{
-					PlayerPrefs.SetInt("Unlock2", 9);
-				}
-				if (a == 30)
-				{
-					PlayerPrefs.SetInt("Unlock2", 10);
-				}
-			}
+			//}
+			//else
+			//{
+			//	int _levelcompleted = PlayerPrefs.GetInt("LevelCompleted");
+			//	_levelCompletePanel.SetActive(true);
+			//	int a = PlayerPrefs.GetInt("LevelNumber");
+			//	Debug.Log("a = " + PlayerPrefs.GetInt("LevelNumber"));
+   //             //PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
+   //             if (Iscompl)
+   //             {
+			//		PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
+			//		Iscompl = false;
+			//	}
+			//	_controllerButtons.SetActive(false);
+			//	if (a == 1)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 1);
+			//	}
+			//	if (a == 2)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 2);
+			//	}
+			//	if (a == 3)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 3);
+			//	}
+			//	if (a == 4)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 4);
+			//	}
+			//	if (a == 5)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 5);
+			//	}
+			//	if (a == 6)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 6);
+			//	}
+			//	if (a == 7)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 7);
+			//	}
+			//	if (a == 8)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 8);
+			//	}
+			//	if (a == 9)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 9);
+			//	}
+			//	if (a == 10)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock", 10);
+			//	}
+			//	if (a == 11)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 1);
+			//	}
+			//	if (a == 12)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 2);
+			//	}
+			//	if (a == 13)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 3);
+			//	}
+			//	if (a == 14)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 4);
+			//	}
+			//	if (a == 15)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 5);
+			//	}
+			//	if (a == 16)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 6);
+			//	}
+			//	if (a == 17)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 7);
+			//	}
+			//	if (a == 18)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 8);
+			//	}
+			//	if (a == 19)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 9);
+			//	}
+			//	if (a == 20)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock1", 10);
+			//	}
+			//	if (a == 21)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 1);
+			//	}
+			//	if (a == 22)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 2);
+			//	}
+			//	if (a == 23)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 3);
+			//	}
+			//	if (a == 24)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 4);
+			//	}
+			//	if (a == 25)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 5);
+			//	}
+			//	if (a == 26)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 6);
+			//	}
+			//	if (a == 27)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 7);
+			//	}
+			//	if (a == 28)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 8);
+			//	}
+			//	if (a == 29)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 9);
+			//	}
+			//	if (a == 30)
+			//	{
+			//		PlayerPrefs.SetInt("Unlock2", 10);
+			//	}
+			//}
 			
 		}
-	}
 	void OnTriggerExit(Collider obj)
     {
 
@@ -378,18 +379,31 @@ public class LevelCompletion : MonoBehaviour
 			_controllerButtons.SetActive (false);
         }
 
-		if (obj.gameObject.tag == "drop") {
-			if (_barCompletion.gameObject.activeSelf) {
-				_barCompletion.transform.GetChild (0).GetComponent<Image> ().fillAmount = 0;
-				_barCompletion.gameObject.SetActive (false);
-			}
-		}
+		//if (obj.gameObject.tag == "drop") {
+		//	if (_barCompletion.gameObject.activeSelf) {
+		//		_barCompletion.transform.GetChild (0).GetComponent<Image> ().fillAmount = 0;
+		//		_barCompletion.gameObject.SetActive (false);
+		//	}
+		//}
 	}
+	private IEnumerator FadeInOut(float targetAlpha, float duration)
+	{
+		float currentAlpha = img.color.a;
+		float startTime = Time.time;
 
+		while (Time.time < startTime + duration)
+		{
+			float elapsedTime = Time.time - startTime;
+			float newAlpha = Mathf.Lerp(currentAlpha, targetAlpha, elapsedTime / duration);
+			img.color = new Color(0f, 0f, 0f, newAlpha);
+			img.gameObject.SetActive(true);
 
+			yield return null;
+		}
 
-
-    IEnumerator hide()
+		img.color = new Color(0f, 0f, 0f, targetAlpha);
+	}
+	IEnumerator hide()
 	{
 		yield return new WaitForSeconds(0.2f);
 
