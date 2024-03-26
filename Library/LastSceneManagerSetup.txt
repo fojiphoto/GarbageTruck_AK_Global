@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Misc/_Scenes/Gameplay.unity
+- path: Assets/GDPR/GDPR.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
